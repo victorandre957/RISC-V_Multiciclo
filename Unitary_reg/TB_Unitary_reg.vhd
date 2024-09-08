@@ -53,18 +53,20 @@ begin
         -- Primeiro valor de entrada
         dataIn <= to_signed(10, 32);
         wait for clk_period;
+        assert dataOut = to_signed(10, 32); report "Erro" severity error;
 
         -- Segundo valor de entrada
         dataIn <= to_signed(20, 32);
         wait for clk_period;
+        assert dataOut = to_signed(10, 32); report "Erro" severity error;
 
         -- Terceiro valor de entrada
         dataIn <= to_signed(30, 32);
         wait for clk_period;
+        assert dataOut = to_signed(10, 32); report "Erro" severity error;
 
         -- Finaliza a simulação
         wait for 30 ns;
-        assert false report "Fim da simulação" severity note;
         wait;
     end process;
 
