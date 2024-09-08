@@ -170,13 +170,11 @@ begin
             when ExAuiPC =>
                 OrigAULA <= "00";
                 OrigBULA <= "10";
-                ALUop <= "10";
                 next_state <= MemTR;
 
             when ExLui =>
                 OrigAULA <= "11"; -- zero no mux
                 OrigBULA <= "10";
-                ALUop <= "10";
                 next_state <= MemTR;
 
             when MemLw =>
