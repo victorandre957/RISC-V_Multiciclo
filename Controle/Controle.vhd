@@ -69,11 +69,11 @@ begin
         -- Inicialização das saídas de controle
         EscrevePCCond <= '0';
         EscrevePC <= '0';
-        LouD <= '0';
+        LouD <= '0'; -- PC
         EscreveMem <= '0';
         LeMem <= '0';
         EscreveIR <= '0';
-        OrigPC <= '0';
+        OrigPC <= '0'; -- ULA
         ALUop <= "00"; -- ADD
         OrigAULA <= "00"; -- PCBack register
         OrigBULA <= "00"; -- rs2
@@ -135,7 +135,7 @@ begin
             when ExTr =>
                 OrigAULA <= "01"; -- rs1
                 OrigBULA <= "00"; -- rs2
-                ALUop <= "10"; -- LogArit
+                ALUop <= "11"; -- LogArit2
                 next_state <= MemTR;
 
             when ExTri =>
@@ -154,14 +154,16 @@ begin
 
             when ExJal =>
                 OrigBULA <= "10"; -- GemImm
-                OrigPC <= '1';
+                OrigPC <= '1'; -- SaidaULA
                 EscrevePC <= '1';
                 Mem2Reg <= "01";  -- PC
                 EscreveReg <= '1';
                 next_state <= IFetch;
 
             when ExJalR =>
-                OrigPC <= '1';
+                OrigPC <= '1'; -- SaidaULA
+                OrigAULA <= "01"; -- rs1
+                OrigBULA <= "10"; -- GemImm
                 EscrevePC <= '1';
                 Mem2Reg <= "01"; -- PC
                 EscreveReg <= '1';
@@ -178,7 +180,7 @@ begin
                 next_state <= MemTR;
 
             when MemLw =>
-                LouD <= '1';
+                LouD <= '1'; -- PC
                 LeMem <= '1';
                 next_state <= WriteBeq;
 

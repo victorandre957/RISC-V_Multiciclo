@@ -20,30 +20,30 @@ process(Aluop, funct3, funct7) is
     begin
     case Aluop is
 	when "00" =>
-	    Ula_in <= "0000";
+	    Ula_in <= "0000"; -- ADD
 
 	when "01" =>
 	    case funct3 is
 		when "000" =>
-		    Ula_in <= "1100";
+		    Ula_in <= "1100"; -- ==
 
 		when "001" =>
-		    Ula_in <= "1101";
+		    Ula_in <= "1101"; -- !=
 
 		when "100" =>
-		    Ula_in <= "1000";
+		    Ula_in <= "1000"; -- A < B signed
 
 		when "101" =>
-		    Ula_in <= "1010";
+		    Ula_in <= "1010"; -- A >= B signed
 
 		when "110" =>
-		    Ula_in <= "1001";
+		    Ula_in <= "1001"; -- A < B unsigned
 
 		when "111" =>
-		    Ula_in <= "1011";
+		    Ula_in <= "1011"; -- A >= B unsigned
 
 		when others =>
-		    Ula_in <= "1111";
+		    Ula_in <= "1111"; -- nop
 
 	    end case;
 
@@ -53,72 +53,73 @@ process(Aluop, funct3, funct7) is
 		    Ula_in <= "0000";
 
 		when "010" =>
-		    Ula_in <= "1000";
+		    Ula_in <= "1000";  -- A < B signed
 
 		when "011" =>
-		    Ula_in <= "1001";
+		    Ula_in <= "1001"; -- A < B unsigned
 
 		when "100" =>
-		    Ula_in <= "0100";
+		    Ula_in <= "0100"; -- A xor B
 
 		when "110" =>
-		    Ula_in <= "0011";
+		    Ula_in <= "0011"; -- A or B
 
 		when "111" =>
-		    Ula_in <= "0010";
+		    Ula_in <= "0010"; -- A and B
 
 		when "001" =>
-		    Ula_in <= "0101";
+		    Ula_in <= "0101"; -- A deslocado B bits a esquerda
 
 		when "101" =>
 		    if funct7 = '0' then
-			Ula_in <= "0110";
+			Ula_in <= "0110"; -- A deslocado B bits a direita unsigned
 		    else
-			Ula_in <= "0111";
+			Ula_in <= "0111"; -- A deslocado B bits a direita signed
 		    end if;
 
 		when others =>
-			Ula_in <= "1111";
+			Ula_in <= "1111"; -- nop
 
 	    end case;
+
 	when "11" =>
 	    case funct3 is
 		when "000" =>
 		    if funct7 = '0' then
-			Ula_in <= "0000";
+				Ula_in <= "0000";  -- ADD
 		    else
-			Ula_in <= "0001";
+				Ula_in <= "0001"; -- SUB
 		    end if;
 
-		when "001" =>
-		    Ula_in <= "0101";
-
 		when "010" =>
-		    Ula_in <= "1000";
+		    Ula_in <= "1000";  -- A < B signed
 
 		when "011" =>
-		    Ula_in <= "1001";
+		    Ula_in <= "1001"; -- A < B unsigned
 
 		when "100" =>
-		    Ula_in <= "0100";
+		    Ula_in <= "0100"; -- A xor B
+
+		when "110" =>
+		    Ula_in <= "0011"; -- A or B
+
+		when "111" =>
+		    Ula_in <= "0010"; -- A and B
+
+		when "001" =>
+		    Ula_in <= "0101"; -- A deslocado B bits a esquerda
 
 		when "101" =>
 		    if funct7 = '0' then
-			Ula_in <= "0110";
+			Ula_in <= "0110"; -- A deslocado B bits a direita unsigned
 		    else
-			Ula_in <= "0111";
+			Ula_in <= "0111"; -- A deslocado B bits a direita signed
 		    end if;
 
-		when "110" =>
-		    Ula_in <= "0011";
-
-		when "111" =>
-		    Ula_in <= "0010";
-
 		when others =>
-		    Ula_in <= "1111";
+			Ula_in <= "1111"; -- nop
 
-	end case;
+	    end case;
 
 	when others =>
 	    Ula_in <= "1111";

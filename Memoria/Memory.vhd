@@ -3,17 +3,18 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use std.textio.all;
 
-entity RAM is
+entity Memory is
     port (
         clock    : in std_logic;
-        we       : in std_logic;
+        we       : in std_logic; -- write enable
+        re       : in std_logic; -- read enable
         address  : in std_logic_vector(11 downto 0); -- 12 bits de endereço
         datain   : in std_logic_vector(31 downto 0); -- 32 bits de entrada
         dataout  : out std_logic_vector(31 downto 0) -- 32 bits de saída
     );
-end entity RAM;
+end entity Memory;
 
-architecture rtl of RAM is
+architecture rtl of Memory is
     constant ram_depth : natural := 4096;  -- A memória tem 4096 palavras
     constant ram_width : natural := 32;
     type ram_type is array (0 to ram_depth - 1) of std_logic_vector(ram_width - 1 downto 0);
@@ -36,17 +37,14 @@ architecture rtl of RAM is
     signal ram : ram_type := init_ram_hex;
 
 begin
+    dataout <= ram(to_integer(unsigned(address))) when (we = '0' and re = '1') else X"00000000";
     process(clock)
     begin
         if rising_edge(clock) then
-            if we = '1' then
-                -- Escreve na memória
-                ram(to_integer(unsigned(address))) <= datain;
+            if we = '1' and re = '0' then
+		ram(to_integer(unsigned(address))) <= datain;
             end if;
         end if;
     end process;
-
-    -- Leitura da memória
-    dataout <= ram(to_integer(unsigned(address)));
 
 end architecture rtl;
