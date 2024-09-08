@@ -1,0 +1,589 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_risc_v_control is
+end entity;
+
+architecture behavior of tb_risc_v_control is
+    -- Component instanciado (Unidade de Controle)
+    component risc_v_control
+        port (
+            clk       : in std_logic;
+            rst       : in std_logic;
+            opcode    : in std_logic_vector(6 downto 0);
+            zero_flag : in std_logic;
+
+            -- Sinais de controle
+            EscrevePCCond : out std_logic;
+            EscrevePC     : out std_logic;
+            LouD          : out std_logic;
+            EscreveMem    : out std_logic;
+            LeMem         : out std_logic;
+            EscreveIR     : out std_logic;
+            OrigPC        : out std_logic;
+            ALUop         : out std_logic_vector(1 downto 0);
+            OrigAULA      : out std_logic_vector(1 downto 0);
+            OrigBULA      : out std_logic_vector(1 downto 0);
+            EscrevePCB    : out std_logic;
+            EscreveReg    : out std_logic;
+            Mem2Reg       : out std_logic_vector(1 downto 0)
+        );
+    end component;
+
+    -- Sinais de entrada
+    signal clk       : std_logic := '0';
+    signal rst       : std_logic := '0';
+    signal opcode    : std_logic_vector(6 downto 0);
+    signal zero_flag : std_logic := '0';
+
+    -- Sinais de saída
+    signal EscrevePCCond : std_logic;
+    signal EscrevePC     : std_logic;
+    signal LouD          : std_logic;
+    signal EscreveMem    : std_logic;
+    signal LeMem         : std_logic;
+    signal EscreveIR     : std_logic;
+    signal OrigPC        : std_logic;
+    signal ALUop         : std_logic_vector(1 downto 0);
+    signal OrigAULA      : std_logic_vector(1 downto 0);
+    signal OrigBULA      : std_logic_vector(1 downto 0);
+    signal EscrevePCB    : std_logic;
+    signal EscreveReg    : std_logic;
+    signal Mem2Reg       : std_logic_vector(1 downto 0);
+
+    -- Clock period definition
+    constant clk_period : time := 1 ns;
+
+begin
+    -- Instância do componente do controle
+    uut: risc_v_control
+        port map (
+            clk       => clk,
+            rst       => rst,
+            opcode    => opcode,
+            zero_flag => zero_flag,
+
+            -- Saídas de controle
+            EscrevePCCond => EscrevePCCond,
+            EscrevePC     => EscrevePC,
+            LouD          => LouD,
+            EscreveMem    => EscreveMem,
+            LeMem         => LeMem,
+            EscreveIR     => EscreveIR,
+            OrigPC        => OrigPC,
+            ALUop         => ALUop,
+            OrigAULA      => OrigAULA,
+            OrigBULA      => OrigBULA,
+            EscrevePCB    => EscrevePCB,
+            EscreveReg    => EscreveReg,
+            Mem2Reg       => Mem2Reg
+        );
+
+    -- Clock process definitions
+    clk_process : process
+    begin
+        clk <= '0';
+        wait for clk_period / 2;
+        clk <= '1';
+        wait for clk_period / 2;
+    end process;
+
+    -- Test process for LW passing through all stages
+    test_process_LW: process
+    begin
+
+        -- Inicialização
+        rst <= '1';
+        wait for clk_period;
+        rst <= '0';
+
+        -- Testando LW (Load Word)
+        opcode <= "0000011";  -- Opcode para LW
+
+        -- Estágio 1: Fetch
+        assert (LouD = '0') report "Erro no sinal LouD no Fetch (LW)" severity error;
+        assert (LeMem = '1') report "Erro no sinal LeMem no Fetch (LW)" severity error;
+        assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (LW)" severity error;
+        assert (OrigAULA = "10") report "Erro no sinal OrigAULA no Fetch (LW)" severity error;
+        assert (OrigBULA = "01") report "Erro no sinal OrigBULA no Fetch (LW)" severity error;
+        assert (ALUop = "00") report "Erro no sinal ALUop no Fetch (LW)" severity error;
+        assert (OrigPC = '0') report "Erro no sinal OrigPC no Fetch (LW)" severity error;
+        assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (LW)" severity error;
+        assert (EscrevePCB = '1') report "Erro no sinal EscrevePCB no Fetch (LW)" severity error;
+
+        wait for clk_period;
+
+        -- Estágio 2: Decode
+        assert (OrigAULA = "00") report "Erro no sinal OrigAULA no Fetch (LW)" severity error;
+        assert (OrigBULA = "10") report "Erro no sinal OrigBULA no Fetch (LW)" severity error;
+        assert (ALUop = "00") report "Erro no sinal ALUop no Fetch (LW)" severity error;
+        wait for clk_period;
+
+        -- Estágio 3: Execute (Cálculo do endereço de memória)
+        assert (OrigAULA = "01") report "Erro no sinal OrigAULA no Fetch (LW)" severity error;
+        assert (OrigBULA = "10") report "Erro no sinal OrigBULA no Fetch (LW)" severity error;
+        assert (ALUop = "00") report "Erro no sinal ALUop no Fetch (LW)" severity error;
+        wait for clk_period;
+
+        -- Estágio 4: MemRead (Leitura da memória)
+        assert (LouD = '1') report "Erro no sinal LeMem no MemRead (LW)" severity error;
+        assert (LeMem = '1') report "Erro no sinal LeMem no MemRead (LW)" severity error;
+        wait for clk_period;
+
+        -- Estágio 5: WriteBack (Escrita no registrador)
+        assert (Mem2Reg = "10") report "Erro no sinal Mem2Reg no WriteBack (LW)" severity error;
+        assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (LW)" severity error;
+
+	wait for clk_period;
+    end process;
+
+    -- Test process for SW passing through all stages
+    -- test_process_SW: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando SW (Store Word)
+    --     opcode <= "0100011";  -- Opcode para SW
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (SW)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (SW)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (EscreveIR = '0') report "Erro no sinal EscreveIR no Decode (SW)" severity error;
+    --     assert (ALUop = "0000") report "Erro no sinal ALUop no Decode (SW)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute (Cálculo do endereço de memória)
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (SW)" severity error;
+    --     assert (OrigBULA = '1') report "Erro no sinal OrigBULA no Execute (SW)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: MemWrite (Escrita na memória)
+    --     assert (EscreveMem = '1') report "Erro no sinal EscreveMem no MemWrite (SW)" severity error;
+    --
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for SW
+    --     wait;
+    -- end process;
+    --
+    --     -- Test process for ADD passing through all stages
+    -- test_process_ADD: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando ADD (Instrução de soma)
+    --     opcode <= "0110011";  -- Opcode para ADD (R-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (ADD)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (ADD)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (ALUop = "0010") report "Erro no sinal ALUop no Decode (ADD)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (ADD)" severity error;
+    --     assert (OrigBULA = '0') report "Erro no sinal OrigBULA no Execute (ADD)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (ADD)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for ADD
+    --     wait;
+    -- end process;
+    --
+    -- -- Test process for ADDi passing through all stages
+    -- test_process_ADDi: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando ADDi (Instrução de soma com imediato)
+    --     opcode <= "0010011";  -- Opcode para ADDi (I-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (ADDi)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (ADDi)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (ALUop = "0010") report "Erro no sinal ALUop no Decode (ADDi)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (ADDi)" severity error;
+    --     assert (OrigBULA = '1') report "Erro no sinal OrigBULA no Execute (ADDi)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (ADDi)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for ADDi
+    --     wait;
+    -- end process;
+    --
+    -- -- Test process for SUB passing through all stages
+    -- test_process_SUB: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando SUB (Instrução de subtração)
+    --     opcode <= "0110011";  -- Opcode para SUB (R-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (SUB)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (SUB)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (ALUop = "0110") report "Erro no sinal ALUop no Decode (SUB)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (SUB)" severity error;
+    --     assert (OrigBULA = '0') report "Erro no sinal OrigBULA no Execute (SUB)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (SUB)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for SUB
+    --     wait;
+    -- end process;
+    --
+    -- -- Test process for AND passing through all stages
+    -- test_process_AND: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando AND (Instrução AND lógico)
+    --     opcode <= "0110011";  -- Opcode para AND (R-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (AND)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (AND)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (ALUop = "0111") report "Erro no sinal ALUop no Decode (AND)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (AND)" severity error;
+    --     assert (OrigBULA = '0') report "Erro no sinal OrigBULA no Execute (AND)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (AND)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for AND
+    --     wait;
+    -- end process;
+    --
+    -- -- Test process for OR passing through all stages
+    -- test_process_OR: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando OR (Instrução OR lógico)
+    --     opcode <= "0110011";  -- Opcode para OR (R-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (OR)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (OR)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (ALUop = "0001") report "Erro no sinal ALUop no Decode (OR)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (OR)" severity error;
+    --     assert (OrigBULA = '0') report "Erro no sinal OrigBULA no Execute (OR)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (OR)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for OR
+    --     wait;
+    -- end process;
+    --
+    -- -- Test process for XOR passing through all stages
+    -- test_process_XOR: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando XOR (Instrução XOR lógico)
+    --     opcode <= "0110011";  -- Opcode para XOR (R-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (XOR)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (XOR)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (ALUop = "0011") report "Erro no sinal ALUop no Decode (XOR)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (XOR)" severity error;
+    --     assert (OrigBULA = '0') report "Erro no sinal OrigBULA no Execute (XOR)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (XOR)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for XOR
+    --     wait;
+    -- end process;
+    --
+    -- -- Test process for SLT passing through all stages
+    -- test_process_SLT: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando SLT (Instrução SLT)
+    --     opcode <= "0110011";  -- Opcode para SLT (R-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (SLT)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (SLT)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (ALUop = "0100") report "Erro no sinal ALUop no Decode (SLT)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (SLT)" severity error;
+    --     assert (OrigBULA = '0') report "Erro no sinal OrigBULA no Execute (SLT)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (SLT)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for SLT
+    --     wait;
+    -- end process;
+    --
+    --     -- Test process for JAL passing through all stages
+    -- test_process_JAL: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando JAL (Jump and Link)
+    --     opcode <= "1101111";  -- Opcode para JAL (J-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (JAL)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (JAL)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (ALUop = "0000") report "Erro no sinal ALUop no Decode (JAL)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     assert (OrigAULA = '0') report "Erro no sinal OrigAULA no Execute (JAL)" severity error;
+    --     assert (OrigBULA = '0') report "Erro no sinal OrigBULA no Execute (JAL)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (JAL)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for JAL
+    --     wait;
+    -- end process;
+    --
+    -- -- Test process for JALR passing through all stages
+    -- test_process_JALR: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando JALR (Jump and Link Register)
+    --     opcode <= "1100111";  -- Opcode para JALR (I-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (JALR)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (JALR)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (ALUop = "0000") report "Erro no sinal ALUop no Decode (JALR)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (JALR)" severity error;
+    --     assert (OrigBULA = '1') report "Erro no sinal OrigBULA no Execute (JALR)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (JAL)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for JALR
+    --     wait;
+    -- end process;
+    --
+    -- -- Test process for AUIPC passing through all stages
+    -- test_process_AUIPC: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando AUIPC (Add Upper Immediate to PC)
+    --     opcode <= "0010111";  -- Opcode para AUIPC (U-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (AUIPC)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (AUIPC)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (ALUop = "0000") report "Erro no sinal ALUop no Decode (AUIPC)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (AUIPC)" severity error;
+    --     assert (OrigBULA = '0') report "Erro no sinal OrigBULA no Execute (AUIPC)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (AUIPC)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for AUIPC
+    --     wait;
+    -- end process;
+    --
+    -- -- Test process for LUI passing through all stages
+    -- test_process_LUI: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando LUI (Load Upper Immediate)
+    --     opcode <= "0110111";  -- Opcode para LUI (U-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (LUI)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (LUI)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     assert (ALUop = "0000") report "Erro no sinal ALUop no Decode (LUI)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (LUI)" severity error;
+    --     assert (OrigBULA = '0') report "Erro no sinal OrigBULA no Execute (LUI)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (LUI)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for LUI
+    --     wait;
+    -- end process;
+    --
+    -- -- Test process for BEQ passing through all stages
+    -- test_process_BEQ: process
+    -- begin
+    --     -- Inicialização
+    --     rst <= '1';
+    --     wait for clk_period * 2;
+    --     rst <= '0';
+    --
+    --     -- Testando BEQ (Branch if Equal)
+    --     opcode <= "1100011";  -- Opcode para BEQ (SB-type)
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 1: Fetch
+    --     assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (BEQ)" severity error;
+    --     assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (BEQ)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 2: Decode
+    --     -- Não há mudanças significativas no Decode para BEQ
+    --     assert (ALUop = "0101") report "Erro no sinal ALUop no Decode (BEQ)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 3: Execute
+    --     -- Não há mudanças significativas no Execute para BEQ
+    --     assert (OrigAULA = '1') report "Erro no sinal OrigAULA no Execute (BEQ)" severity error;
+    --     assert (OrigBULA = '1') report "Erro no sinal OrigBULA no Execute (BEQ)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Estágio 4: WriteBack
+    --     -- Não há WriteBack para BEQ
+    --     assert (EscreveReg = '0') report "Erro no sinal EscreveReg no WriteBack (BEQ)" severity error;
+    --     wait for clk_period * 2;
+    --
+    --     -- Test completed for BEQ
+    --     wait;
+    -- end process;
+
+
+end architecture;

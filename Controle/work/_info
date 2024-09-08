@@ -1,0 +1,97 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/victor_moraes
+Erisc_v_control
+Z0 w1725749723
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 111
+Z4 d/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle
+Z5 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle/Controle.vhd
+Z6 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle/Controle.vhd
+l0
+L5 1
+Vj:fG^QERc9749?Vg?9kQY1
+!s100 gjfNS1;GRRdMa7HN<8VUM3
+Z7 OV;C;2020.1;71
+33
+Z8 !s110 1725755879
+!i10b 1
+Z9 !s108 1725755879.000000
+Z10 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle/Controle.vhd|
+Z11 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle/Controle.vhd|
+!i113 1
+Z12 o-work work -2008 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Afsm
+R1
+R2
+R3
+Z14 DEx4 work 14 risc_v_control 0 22 j:fG^QERc9749?Vg?9kQY1
+!i122 111
+l47
+Z15 L29 178
+Z16 V=0i0GZRh33od9W??7W:H02
+Z17 !s100 jk_?JaiMA05?K>Cl88fDl1
+R7
+33
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Etb_risc_v_control
+Z18 w1725755873
+R1
+R2
+R3
+!i122 110
+R4
+Z19 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle/TB_Controle.vhd
+Z20 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle/TB_Controle.vhd
+l0
+L5 1
+V]4CIOD7jPEi]4oMBEQCZ_2
+!s100 GB1098H:ckMg5oi]:f_cZ3
+R7
+33
+R8
+!i10b 1
+R9
+Z21 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle/TB_Controle.vhd|
+Z22 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle/TB_Controle.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R1
+R2
+R3
+DEx4 work 17 tb_risc_v_control 0 22 ]4CIOD7jPEi]4oMBEQCZ_2
+!i122 110
+l58
+L8 138
+VDS93l:z0A8iN`6JPiAUG<3
+!s100 TF^adPa7he40HgD6dfSRI3
+R7
+33
+R8
+!i10b 1
+R9
+R21
+R22
+!i113 1
+R12
+R13
