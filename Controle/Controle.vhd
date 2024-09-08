@@ -74,20 +74,20 @@ begin
         LeMem <= '0';
         EscreveIR <= '0';
         OrigPC <= '0';
-        ALUop <= "00";
-        OrigAULA <= "00";
-        OrigBULA <= "00";
+        ALUop <= "00"; -- ADD
+        OrigAULA <= "00"; -- PCBack register
+        OrigBULA <= "00"; -- rs2
         EscrevePCB <= '0';
         EscreveReg <= '0';
-        Mem2Reg <= "00";
+        Mem2Reg <= "00"; -- SaidaULA
 
         case state is
             -- Instrução Fetch (IFetch)
             when IFetch =>
                 LeMem <= '1';
                 EscreveIR <= '1';
-                OrigAULA <= "10";
-                OrigBULA <= "01";
+                OrigAULA <= "10"; -- PC
+                OrigBULA <= "01"; -- 4
                 EscrevePC <= '1';
                 EscrevePCB <= '1';
                 if fetch_counter = 1 then
@@ -98,7 +98,7 @@ begin
 
             -- Decodificação
             when Decode =>
-                OrigBULA <= "10";
+                OrigBULA <= "10"; -- GemImm
 
                 case opcode is
                     when LW =>
@@ -124,8 +124,8 @@ begin
                 end case;
 
             when ExLwSw =>
-                OrigAULA <= "01";
-                OrigBULA <= "10";
+                OrigAULA <= "01"; -- rs1
+                OrigBULA <= "10"; -- -- GemImm
                 if opcode = LW then
                     next_state <= MemLw;
                 else
@@ -133,48 +133,48 @@ begin
                 end if;
 
             when ExTr =>
-                OrigAULA <= "01";
-                OrigBULA <= "00";
-                ALUop <= "10";
+                OrigAULA <= "01"; -- rs1
+                OrigBULA <= "00"; -- rs2
+                ALUop <= "10"; -- LogArit
                 next_state <= MemTR;
 
             when ExTri =>
-                OrigAULA <= "01";
-                OrigBULA <= "10";
-                ALUop <= "10";
+                OrigAULA <= "01"; -- rs1
+                OrigBULA <= "10"; -- GemImm
+                ALUop <= "10"; -- LogArit
                 next_state <= MemTR;
 
             when ExBeq =>
-                OrigAULA <= "01";
-                OrigBULA <= "00";
-                ALUop <= "01";
+                OrigAULA <= "01"; -- rs1
+                OrigBULA <= "00"; -- rs2
+                ALUop <= "01"; -- rs2
                 OrigPC <= '1';
                 EscrevePCCond <= '1';
                 next_state <= IFetch;
 
             when ExJal =>
-                OrigBULA <= "10";
+                OrigBULA <= "10"; -- GemImm
                 OrigPC <= '1';
                 EscrevePC <= '1';
-                Mem2Reg <= "01";
+                Mem2Reg <= "01";  -- PC
                 EscreveReg <= '1';
                 next_state <= IFetch;
 
             when ExJalR =>
                 OrigPC <= '1';
                 EscrevePC <= '1';
-                Mem2Reg <= "01";
+                Mem2Reg <= "01"; -- PC
                 EscreveReg <= '1';
                 next_state <= IFetch;
 
             when ExAuiPC =>
-                OrigAULA <= "00";
-                OrigBULA <= "10";
+                OrigAULA <= "00"; -- PCBack register
+                OrigBULA <= "10"; -- GemImm
                 next_state <= MemTR;
 
             when ExLui =>
                 OrigAULA <= "11"; -- zero no mux
-                OrigBULA <= "10";
+                OrigBULA <= "10"; -- GemImm
                 next_state <= MemTR;
 
             when MemLw =>
@@ -188,12 +188,12 @@ begin
                 next_state <= IFetch;
 
             when MemTR =>
-                Mem2Reg <= "00";
+                Mem2Reg <= "00"; -- SaidaULA
                 EscreveReg <= '1';
                 next_state <= IFetch;
 
             when WriteBeq =>
-                Mem2Reg <= "10";
+                Mem2Reg <= "10"; -- Reg Data Memory
                 EscreveReg <= '1';
                 next_state <= IFetch;
 

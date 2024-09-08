@@ -1,0 +1,97 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/victor_moraes
+Erisc_v_ula_control
+Z0 w1725758347
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+Z4 d/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle_ULA
+Z5 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle_ULA/Controle_ULA.vhd
+Z6 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle_ULA/Controle_ULA.vhd
+l0
+L5 1
+VgM=8YjiaNTTFFX62V7dZQ3
+!s100 hee_:BUB_XJD@N6PGi:K03
+Z7 OV;C;2020.1;71
+32
+Z8 !s110 1725759650
+!i10b 1
+Z9 !s108 1725759650.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle_ULA/Controle_ULA.vhd|
+Z11 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle_ULA/Controle_ULA.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Artl
+R1
+R2
+R3
+DEx4 work 18 risc_v_ula_control 0 22 gM=8YjiaNTTFFX62V7dZQ3
+!i122 0
+l18
+L15 117
+VmJ]`?BRYGzZ3:]mKSdS2k2
+!s100 Z0OInc^9949bTalA4;z@D0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Etb_risc_v_ula_control
+Z14 w1725758885
+R1
+R2
+R3
+!i122 1
+R4
+Z15 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle_ULA/TB_Controle_ULA.vhd
+Z16 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle_ULA/TB_Controle_ULA.vhd
+l0
+L5 1
+Vn<F@e8fzngOJf>mD27lMF1
+!s100 JanWPBV`jh10ERFfRYB^>0
+R7
+32
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle_ULA/TB_Controle_ULA.vhd|
+!s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle_ULA/TB_Controle_ULA.vhd|
+!i113 1
+R12
+R13
+Abehavior
+R1
+R2
+R3
+DEx4 work 21 tb_risc_v_ula_control 0 22 n<F@e8fzngOJf>mD27lMF1
+!i122 1
+l25
+L8 104
+V@C4IRWRV=<V<2cmTA[WSc3
+!s100 8T8nL98`4j28OJQXmRik]3
+R7
+32
+R8
+!i10b 1
+R9
+R17
+Z18 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Controle_ULA/TB_Controle_ULA.vhd|
+!i113 1
+R12
+R13
