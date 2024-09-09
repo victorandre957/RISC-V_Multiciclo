@@ -14,7 +14,7 @@ Z0 w1725894137
 Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 146
+!i122 227
 Z4 d/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V
 Z5 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/GenImm32.vhd
 Z6 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/GenImm32.vhd
@@ -24,9 +24,9 @@ VTk=D4Vz?>>NXnCdhUXN4h2
 !s100 c;oF?VJbzRR]V95di4[j63
 Z7 OV;C;2020.1;71
 33
-Z8 !s110 1725913190
+Z8 !s110 1725916758
 !i10b 1
-Z9 !s108 1725913190.000000
+Z9 !s108 1725916758.000000
 Z10 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/GenImm32.vhd|
 Z11 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/GenImm32.vhd|
 !i113 1
@@ -37,7 +37,7 @@ R1
 R2
 R3
 Z14 DEx4 work 8 genimm32 0 22 Tk=D4Vz?>>NXnCdhUXN4h2
-!i122 146
+!i122 227
 l19
 L11 40
 Vk`E0nCL6R8MbMfV9<?P]Z2
@@ -53,18 +53,18 @@ R11
 R12
 R13
 Ememory
-Z15 w1725891666
+Z15 w1725913985
 R1
 R2
 R3
-!i122 147
+!i122 228
 R4
 Z16 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Memory.vhd
 Z17 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Memory.vhd
 l0
 L6 1
-VjJzlo_XEGLLdE]PHe<o<F0
-!s100 cOT1Ll1W2?hff7znOn7<z1
+V33FZ35RJz5=[D5G6IB8960
+!s100 Ng1X55aIGz_9B@O9cigB_1
 R7
 33
 R8
@@ -79,12 +79,12 @@ Artl
 R1
 R2
 R3
-Z20 DEx4 work 6 memory 0 22 jJzlo_XEGLLdE]PHe<o<F0
-!i122 147
+Z20 DEx4 work 6 memory 0 22 33FZ35RJz5=[D5G6IB8960
+!i122 228
 l40
 L17 36
-VKdGICcOP7`M[4k5a970`:2
-!s100 REf7=EmlIJ6o:2[heSSP03
+VjRS]aMB42@z4MbZjPDe153
+!s100 C6AQ>Z6P^XCmeKgG?QdIb3
 R7
 33
 R8
@@ -96,25 +96,25 @@ R19
 R12
 R13
 Emux_1_to_2
-Z21 w1725891206
+R15
 R1
 R2
 R3
-!i122 148
+!i122 229
 R4
-Z22 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_1_to_2.vhd
-Z23 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_1_to_2.vhd
+Z21 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_1_to_2.vhd
+Z22 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_1_to_2.vhd
 l0
 L5 1
-VN9IgKXN47;3Z];9Y3PTmV2
-!s100 N_HH60oZ<jSd3bcDgO;WG2
+VZ0N_aJ;EU0@`j=7kbbmbD1
+!s100 [z[E[c4>E>bzeKL==YdNe2
 R7
 33
 R8
 !i10b 1
 R9
-Z24 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_1_to_2.vhd|
-Z25 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_1_to_2.vhd|
+Z23 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_1_to_2.vhd|
+Z24 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_1_to_2.vhd|
 !i113 1
 R12
 R13
@@ -122,42 +122,42 @@ Artl
 R1
 R2
 R3
-Z26 DEx4 work 10 mux_1_to_2 0 22 N9IgKXN47;3Z];9Y3PTmV2
-!i122 148
+Z25 DEx4 work 10 mux_1_to_2 0 22 Z0N_aJ;EU0@`j=7kbbmbD1
+!i122 229
 l15
 L14 11
-V9]M>26bKcO^Xm@f2nPc@J3
-!s100 IiJ0l`0_;^G5<`ZNN5F`f3
+VZfIJ0XTD]f:@HM1=XAXFH1
+!s100 NKmg]mC3X>@U=ZBoc;bSV3
 R7
 33
 R8
 !i10b 1
 R9
+R23
 R24
-R25
 !i113 1
 R12
 R13
 Emux_2_to_4
-Z27 w1725892924
+R15
 R1
 R2
 R3
-!i122 149
+!i122 230
 R4
-Z28 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_2_to_4.vhd
-Z29 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_2_to_4.vhd
+Z26 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_2_to_4.vhd
+Z27 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_2_to_4.vhd
 l0
 L5 1
-VQ^?8VSoZl0XEHn8iMjlGQ3
-!s100 9]2LWgIKi`]5l;K<RdEBF0
+VSR<C^0=?_h;eJD]?bUQi:2
+!s100 WOUi0dDZo1I5IW[LzE1JI0
 R7
 33
 R8
 !i10b 1
 R9
-Z30 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_2_to_4.vhd|
-Z31 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_2_to_4.vhd|
+Z28 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_2_to_4.vhd|
+Z29 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Mux_2_to_4.vhd|
 !i113 1
 R12
 R13
@@ -165,42 +165,42 @@ Artl
 R1
 R2
 R3
-Z32 DEx4 work 10 mux_2_to_4 0 22 Q^?8VSoZl0XEHn8iMjlGQ3
-!i122 149
+Z30 DEx4 work 10 mux_2_to_4 0 22 SR<C^0=?_h;eJD]?bUQi:2
+!i122 230
 l17
 L16 19
-VzgkZNeWi71ek:?DVKS<b01
-!s100 >9_TR7_d4PfbozaEFdn1o3
+VKiL=0f92>ZGSCB6Q<z_m;0
+!s100 lU3:?gAZX^GloTXSPcWe[3
 R7
 33
 R8
 !i10b 1
 R9
-R30
-R31
+R28
+R29
 !i113 1
 R12
 R13
 Erisc_v_control
-Z33 w1725895637
+R15
 R1
 R2
 R3
-!i122 144
+!i122 225
 R4
-Z34 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle.vhd
-Z35 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle.vhd
+Z31 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle.vhd
+Z32 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle.vhd
 l0
 L5 1
-Vj:fG^QERc9749?Vg?9kQY1
-!s100 gjfNS1;GRRdMa7HN<8VUM3
+VD`nIC=[k3;F?^@O5^:@E71
+!s100 W27ao7]GzU[]WCGLBKzTF1
 R7
 33
 R8
 !i10b 1
 R9
-Z36 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle.vhd|
-Z37 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle.vhd|
+Z33 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle.vhd|
+Z34 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle.vhd|
 !i113 1
 R12
 R13
@@ -208,94 +208,94 @@ Afsm
 R1
 R2
 R3
-Z38 DEx4 work 14 risc_v_control 0 22 j:fG^QERc9749?Vg?9kQY1
-!i122 144
+Z35 DEx4 work 14 risc_v_control 0 22 D`nIC=[k3;F?^@O5^:@E71
+!i122 225
 l47
 L29 196
-Vbb^NXP@?:7;Q;<76S_>>Z1
-!s100 JIzCKK[SDY`mUz<7kCdHb3
+V5cCG_S]K3=6E8=bl=NfZ[2
+!s100 <`AMe6_R0bJNLGDc_7VIV0
 R7
 33
 R8
 !i10b 1
 R9
-R36
-R37
+R33
+R34
 !i113 1
 R12
 R13
 Erisc_v_multicycle
-Z39 w1725912645
+Z36 w1725916584
 R1
 R2
 R3
-!i122 154
+!i122 234
 R4
-Z40 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Risc-V.vhd
-Z41 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Risc-V.vhd
+Z37 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Risc-V.vhd
+Z38 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Risc-V.vhd
 l0
 L5 1
-V5O7498@T<<2RCegGS^i^K1
-!s100 P2XBbZmS1Qa0OUjPA?ZK[3
+V4LcST]h?i7P=PG4USl_NK2
+!s100 5fGaiAV4gWe7U?;Y3^4d32
 R7
 33
 R8
 !i10b 1
 R9
-Z42 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Risc-V.vhd|
-Z43 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Risc-V.vhd|
+Z39 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Risc-V.vhd|
+Z40 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Risc-V.vhd|
 !i113 1
 R12
 R13
 Artl
-Z44 DEx4 work 3 ula 0 22 hJ3FzBElMMKWO??@KVnlz1
+Z41 DEx4 work 3 ula 0 22 EAa81h7Ca65=HO@YYcjSY2
 R14
-Z45 DEx4 work 5 xregs 0 22 _eEz7zQ>=6TnEgLH[IY[S0
-R32
+Z42 DEx4 work 5 xregs 0 22 aZm2jnQeK=h:F_O60>JoA0
+R30
 R20
-R26
-Z46 DEx4 work 11 unitary_reg 0 22 G7gfSSl4DCT?673lgoJ5S2
-Z47 DEx4 work 18 risc_v_ula_control 0 22 6?mAD4AKWnA8UUDb4dl4N0
-R38
+R25
+Z43 DEx4 work 11 unitary_reg 0 22 5Al`h]eidYhXPPWl9?A5A0
+Z44 DEx4 work 18 risc_v_ula_control 0 22 >LD14ML<m1OATkohoFKf]1
+R35
 R1
 R2
 R3
-Z48 DEx4 work 17 risc_v_multicycle 0 22 5O7498@T<<2RCegGS^i^K1
-!i122 154
-l48
-Z49 L22 209
-Z50 V:3he7M;dNXEzE1>l2WSQ02
-Z51 !s100 S<=@UhG<1dIDI;d0]B@ID3
+DEx4 work 17 risc_v_multicycle 0 22 4LcST]h?i7P=PG4USl_NK2
+!i122 234
+l41
+L15 201
+VT>YNI0BEaBWeAn]R[BQD40
+!s100 PAhHZJi2@0_;N_M_<NXKj0
 R7
 33
 R8
 !i10b 1
 R9
-R42
-R43
+R39
+R40
 !i113 1
 R12
 R13
 Erisc_v_ula_control
-Z52 w1725888997
+R15
 R1
 R2
 R3
-!i122 145
+!i122 226
 R4
-Z53 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle_ULA.vhd
-Z54 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle_ULA.vhd
+Z45 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle_ULA.vhd
+Z46 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle_ULA.vhd
 l0
 L5 1
-V6?mAD4AKWnA8UUDb4dl4N0
-!s100 1jDL>7f6RgGe`NOGGUliS0
+V>LD14ML<m1OATkohoFKf]1
+!s100 zk]F_F6o8DETQf1]E_E4>0
 R7
 33
 R8
 !i10b 1
 R9
-Z55 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle_ULA.vhd|
-Z56 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle_ULA.vhd|
+Z47 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle_ULA.vhd|
+Z48 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Controle_ULA.vhd|
 !i113 1
 R12
 R13
@@ -303,31 +303,31 @@ Artl
 R1
 R2
 R3
-R47
-!i122 145
+R44
+!i122 226
 l16
 L14 90
-VWS0]1j=C4YgkXoULPjBXc3
-!s100 VfLkjkSDn43JKQ7h]Q=Q33
+V0RF;6A>Z9ieGCIk5fHg8j0
+!s100 m60SZGhN8RlbVOZfl1S620
 R7
 33
 R8
 !i10b 1
 R9
-R55
-R56
+R47
+R48
 !i113 1
 R12
 R13
 Etestbench
-Z57 w1725912349
+Z49 w1725916751
 R1
 R2
 R3
-!i122 150
+!i122 235
 R4
-Z58 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/TB_Risc-V.vhd
-Z59 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/TB_Risc-V.vhd
+Z50 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/TB_Risc-V.vhd
+Z51 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/TB_Risc-V.vhd
 l0
 L6 1
 Vn1:eF<W]Z6H`4PA6WRQZP1
@@ -337,8 +337,8 @@ R7
 R8
 !i10b 1
 R9
-Z60 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/TB_Risc-V.vhd|
-Z61 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/TB_Risc-V.vhd|
+Z52 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/TB_Risc-V.vhd|
+Z53 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/TB_Risc-V.vhd|
 !i113 1
 R12
 R13
@@ -346,42 +346,42 @@ Atb
 R1
 R2
 R3
-DEx4 work 9 testbench 0 22 n1:eF<W]Z6H`4PA6WRQZP1
-!i122 150
-l39
-L8 49
-V7YUORUAbg;<HVQN6gIHMQ3
-!s100 CPi16b;Vb1;?976UXfi5Q1
+Z54 DEx4 work 9 testbench 0 22 n1:eF<W]Z6H`4PA6WRQZP1
+!i122 235
+l25
+L8 28
+VgL8OlzBPk@KFSUJ7B[Tnn3
+!s100 Hc3WbHUCM8a`nd58i:7km3
 R7
 33
 R8
 !i10b 1
 R9
-R60
-R61
+R52
+R53
 !i113 1
 R12
 R13
 Eula
-Z62 w1724376875
+R15
 R1
 R2
 R3
-!i122 151
+!i122 231
 R4
-Z63 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/ULA.vhd
-Z64 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/ULA.vhd
+Z55 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/ULA.vhd
+Z56 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/ULA.vhd
 l0
 L5 1
-VhJ3FzBElMMKWO??@KVnlz1
-!s100 ^QTghajRfTKkTX@S@S2l72
+VEAa81h7Ca65=HO@YYcjSY2
+!s100 eh`Nc92Hhjh=9O@[07B2V3
 R7
 33
 R8
 !i10b 1
 R9
-Z65 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/ULA.vhd|
-Z66 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/ULA.vhd|
+Z57 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/ULA.vhd|
+Z58 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/ULA.vhd|
 !i113 1
 R12
 R13
@@ -389,42 +389,42 @@ Abehavioral
 R1
 R2
 R3
-R44
-!i122 151
+R41
+!i122 231
 l21
 L14 135
-V]3H9z457CImBIKkf2nEJA1
-!s100 DPacj9Q^4z9B4Nj4Vm27l1
+VXchF=<9_J2G8QJmI1ZnLE1
+!s100 HXEZH9S_:_flKz:YDKkDk1
 R7
 33
 R8
 !i10b 1
 R9
-R65
-R66
+R57
+R58
 !i113 1
 R12
 R13
 Eunitary_reg
-Z67 w1725913187
+R15
 R1
 R2
 R3
-!i122 152
+!i122 232
 R4
-Z68 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Unitary_reg.vhd
-Z69 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Unitary_reg.vhd
+Z59 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Unitary_reg.vhd
+Z60 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Unitary_reg.vhd
 l0
 L5 1
-VG7gfSSl4DCT?673lgoJ5S2
-!s100 7jZWA?n>dfT?[ecfLI47=3
+V5Al`h]eidYhXPPWl9?A5A0
+!s100 `<fA1R=f3nSm`VWeKGQT70
 R7
 33
 R8
 !i10b 1
 R9
-Z70 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Unitary_reg.vhd|
-Z71 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Unitary_reg.vhd|
+Z61 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Unitary_reg.vhd|
+Z62 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/Unitary_reg.vhd|
 !i113 1
 R12
 R13
@@ -432,42 +432,42 @@ Artl
 R1
 R2
 R3
-R46
-!i122 152
+R43
+!i122 232
 l17
 L14 21
-V=9db^i1kS;z[i^NU_S;GM1
-!s100 eWJDg`mBZ2XAFWLzSg6R[1
+Ve]:A7aaB@3C7fb;VhZW7`3
+!s100 j:2A2O<RGZROM:UmLeA=a0
 R7
 33
 R8
 !i10b 1
 R9
-R70
-R71
+R61
+R62
 !i113 1
 R12
 R13
 Exregs
-Z72 w1725891969
+R15
 R1
 R2
 R3
-!i122 153
+!i122 233
 R4
-Z73 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/XREGS.vhd
-Z74 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/XREGS.vhd
+Z63 8/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/XREGS.vhd
+Z64 F/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/XREGS.vhd
 l0
 L5 1
-V_eEz7zQ>=6TnEgLH[IY[S0
-!s100 Gkm[kJz^0A@4nhL1eC=T:0
+VaZm2jnQeK=h:F_O60>JoA0
+!s100 cG7bOjcJbGE4a0[E^VQH<0
 R7
 33
 R8
 !i10b 1
 R9
-Z75 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/XREGS.vhd|
-Z76 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/XREGS.vhd|
+Z65 !s90 -reportprogress|300|-work|work|-2008|-explicit|-stats=none|/home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/XREGS.vhd|
+Z66 !s107 /home/victor_moraes/Documentos/Unb/OAC/RISC-V_Multiciclo/Risc-V/XREGS.vhd|
 !i113 1
 R12
 R13
@@ -475,19 +475,19 @@ Areg
 R1
 R2
 R3
-R45
-!i122 153
+R42
+!i122 233
 l19
 L16 22
-Vc5X1Y9bZ>[Yh3h9B<c>6b1
-!s100 @jD0@Bkb6BI@OY[`3X6Ib1
+VXmR^1@I:6jfFl<3PFRk]_1
+!s100 IDoId1=CCaYY=zm70PWBh0
 R7
 33
 R8
 !i10b 1
 R9
-R75
-R76
+R65
+R66
 !i113 1
 R12
 R13

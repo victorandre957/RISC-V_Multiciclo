@@ -4,18 +4,11 @@ use ieee.numeric_std.all;
 
 entity Risc_V_Multicycle is
     port (
-        clock        : in STD_LOGIC;
-        reset        : in STD_LOGIC;
-        regInstrOut  : out STD_LOGIC_VECTOR(31 downto 0);
-        rs1Out       : out signed(31 downto 0);
-        rs2Out       : out signed(31 downto 0);
-        imm32Out     : out signed(31 downto 0);
-        regDataOut   : out signed(31 downto 0);
-        pcOut        : out unsigned(31 downto 0);
-        Mem2RegOut   : out STD_LOGIC_VECTOR(1 downto 0);
-        EscreveIROut : out STD_LOGIC;
-        OrigAULAOut  : out STD_LOGIC_VECTOR(1 downto 0);
-        OrigBULAOut  : out STD_LOGIC_VECTOR(1 downto 0)
+        clock          : in STD_LOGIC;
+        reset          : in STD_LOGIC;
+        regInstrOut    : out STD_LOGIC_VECTOR(31 downto 0);
+        regSaidaUlaOut : out signed(31 downto 0);
+        pcOut          : out unsigned(31 downto 0)
     );
 end entity Risc_V_Multicycle;
 
@@ -215,16 +208,8 @@ begin
             Y   => MuxOrigPC
         );
 
-    regInstrOut  <= STD_LOGIC_VECTOR(unsigned(regInstr));
-    rs1Out       <= regA;
-    rs2Out       <= regB;
-    imm32Out     <= imm32;
-    regDataOut   <= MuxMem2Reg;
-    pcOut        <= unsigned(pc);
-    Mem2RegOut   <= Mem2Reg;
-    EscreveIROut <= EscreveIR;
-
-    OrigAULAOut <= OrigAULA;
-    OrigBULAOut <= OrigBULA;
+    regInstrOut    <= STD_LOGIC_VECTOR(unsigned(regInstr));
+    regSaidaUlaOut <= regSaidaUla;  -- need check instructions
+    pcOut          <= unsigned(pc); -- need check jal and beq
 
 end architecture rtl;
