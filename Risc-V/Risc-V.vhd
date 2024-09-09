@@ -13,7 +13,9 @@ port(
     regDataOut: out signed(31 downto 0);
     pcOut: out unsigned(31 downto 0);
     Mem2RegOut: out std_logic_vector(1 downto 0);
-    EscreveIROut : out std_logic
+    EscreveIROut : out std_logic;
+    OrigAULAOut: out std_logic_vector(1 downto 0);
+    OrigBULAOut: out std_logic_vector(1 downto 0)
 );
 end entity Risc_V_Multicycle;
 
@@ -179,8 +181,8 @@ gen_imm: entity work.genImm32
 mux_orig_aula: entity work.Mux_2_to_4
     port map (
         A   =>   pcBack,
-        B   =>   pc,
-        C   =>   regA,
+        B   =>   regA,
+        C   =>   pc,
         D   =>   (others => '0'),
         sel =>   OrigAULA,
         Y   =>   MuxOrigAULA
@@ -213,8 +215,6 @@ mux_orig_pc: entity work.mux_1_to_2
         Y   =>   MuxOrigPC
     );
 
-
-
 regInstrOut <= std_logic_vector(unsigned(regInstr));
 rs1Out      <= regA;
 rs2Out      <= regB;
@@ -223,6 +223,9 @@ regDataOut  <= MuxMem2Reg;
 pcOut       <= unsigned(pc);
 Mem2RegOut     <= Mem2Reg;
 EscreveIROut <= EscreveIR;
+
+OrigAULAOut <= OrigAULA;
+OrigBULAOut <= OrigBULA;
 
 end architecture rtl;
 

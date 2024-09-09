@@ -17,11 +17,13 @@ port(
     regDataOut: out signed(31 downto 0);
     pcOut: out unsigned(31 downto 0);
     Mem2RegOut: out std_logic_vector(1 downto 0);
-    EscreveIROut : out std_logic
+    EscreveIROut : out std_logic;
+    OrigAULAOut: out std_logic_vector(1 downto 0);
+    OrigBULAOut: out std_logic_vector(1 downto 0)
 );
 end component;
 
-signal clk     : std_logic:='1';
+signal clk     : std_logic:='0';
 signal reset   : std_logic:='0';
 signal regInstrOut: std_logic_vector(31 downto 0);
 signal rs1Out     : signed(31 downto 0);
@@ -31,6 +33,8 @@ signal regDataOut : signed(31 downto 0);
 signal pcOut      : unsigned(31 downto 0);
 signal Mem2RegOut   : std_logic_vector(1 downto 0);
 signal EscreveIROut   : std_logic:='0';
+signal OrigAULAOut   : std_logic_vector(1 downto 0);
+signal OrigBULAOut   : std_logic_vector(1 downto 0);
 
 begin
 dut: Risc_V_Multicycle port map(
@@ -43,7 +47,9 @@ dut: Risc_V_Multicycle port map(
     regDataOut  => regDataOut,
     pcOut       => pcOut,
     Mem2RegOut  => Mem2RegOut,
-    EscreveIROut => EscreveIROut
+    EscreveIROut => EscreveIROut,
+    OrigAULAOut => OrigAULAOut,
+    OrigBULAOut => OrigBULAOut
 );
 
 clk <= not clk after 1 us;
