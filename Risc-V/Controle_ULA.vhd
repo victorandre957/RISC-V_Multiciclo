@@ -3,18 +3,18 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity risc_v_ULA_control is
-    port(
-        funct3  : in std_logic_vector(2 downto 0); -- 3 bits
-        funct7  : in std_logic_vector(6 downto 0); -- 7 bits
-        AluOp   : in std_logic_vector(1 downto 0); -- 2 bits para AluOp
-        UlaSel  : out std_logic_vector(3 downto 0) -- 4 bits de controle da ULA
+    port (
+        funct3 : in STD_LOGIC_VECTOR(2 downto 0); -- 3 bits
+        funct7 : in STD_LOGIC_VECTOR(6 downto 0); -- 7 bits
+        AluOp  : in STD_LOGIC_VECTOR(1 downto 0); -- 2 bits para AluOp
+        UlaSel : out STD_LOGIC_VECTOR(3 downto 0) -- 4 bits de controle da ULA
     );
 end entity risc_v_ULA_control;
 
 architecture rtl of risc_v_ULA_control is
-    signal Ula_in : std_logic_vector(3 downto 0); -- Sinal interno para armazenar o valor da UlaSel
+    signal Ula_in : STD_LOGIC_VECTOR(3 downto 0); -- Sinal interno para armazenar o valor da UlaSel
 begin
-    process(AluOp, funct3, funct7)
+    process (AluOp, funct3, funct7)
     begin
         case AluOp is
             when "00" =>
