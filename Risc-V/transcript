@@ -1,0 +1,747 @@
+# Errors: 0, Warnings: 0
+# Compile of Controle.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Controle_ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of GenImm32.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Memory.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_1_to_2.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_2_to_4.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Unitary_reg.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of XREGS.vhd was successful.
+# Errors: 35, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 35, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 35, Warnings: 0
+# Compile of Risc-V.vhd failed.
+# Errors: 5, Warnings: 0
+# Compile of TB_Risc-V.vhd failed.
+# Errors: 0, Warnings: 0
+# Compile of Controle.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Controle_ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of GenImm32.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Memory.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_1_to_2.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_2_to_4.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Unitary_reg.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of XREGS.vhd was successful.
+# Errors: 11, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 11, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 11, Warnings: 0
+# Compile of Risc-V.vhd failed.
+# Errors: 5, Warnings: 0
+# Compile of TB_Risc-V.vhd failed.
+# Errors: 0, Warnings: 0
+# Compile of Controle.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Controle_ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of GenImm32.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Memory.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_1_to_2.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_2_to_4.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Unitary_reg.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of XREGS.vhd was successful.
+# Errors: 11, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 11, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 11, Warnings: 0
+# Compile of Risc-V.vhd failed.
+# Errors: 5, Warnings: 0
+# Compile of TB_Risc-V.vhd failed.
+# Errors: 0, Warnings: 0
+# Compile of Controle.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Controle_ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of GenImm32.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Memory.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_1_to_2.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_2_to_4.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Unitary_reg.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of XREGS.vhd was successful.
+# Errors: 13, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 13, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 13, Warnings: 0
+# Compile of Risc-V.vhd failed.
+# Errors: 5, Warnings: 0
+# Compile of TB_Risc-V.vhd failed.
+# Errors: 0, Warnings: 0
+# Compile of Controle.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Controle_ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of GenImm32.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Memory.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_1_to_2.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_2_to_4.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Unitary_reg.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of XREGS.vhd was successful.
+# Errors: 11, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 11, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 11, Warnings: 0
+# Compile of Risc-V.vhd failed.
+# Errors: 5, Warnings: 0
+# Compile of TB_Risc-V.vhd failed.
+# Errors: 0, Warnings: 0
+# Compile of Controle.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Controle_ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of GenImm32.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Memory.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_1_to_2.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_2_to_4.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Unitary_reg.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of XREGS.vhd was successful.
+# Errors: 30, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 30, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 30, Warnings: 0
+# Compile of Risc-V.vhd failed.
+# Errors: 5, Warnings: 0
+# Compile of TB_Risc-V.vhd failed.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 30 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 35 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 30 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 35 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 28 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 33 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 27 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 32 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 28 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 33 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 27 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 32 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 32 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 37 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 37 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 42 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 32 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 37 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 32 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 37 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 37 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 42 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 39 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 44 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd failed with 1 errors.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 36 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 3 failed with 42 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 37 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 42 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 35 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 40 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 37 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 42 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 35 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 40 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 35 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 40 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 37 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 42 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 36 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 41 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 34 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 39 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 34 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 39 errors.
+# Errors: 0, Warnings: 0
+# Compile of Controle.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Controle_ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of GenImm32.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Memory.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_1_to_2.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_2_to_4.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Unitary_reg.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of XREGS.vhd was successful.
+# Errors: 34, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 34, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 34, Warnings: 0
+# Compile of Risc-V.vhd failed.
+# Errors: 5, Warnings: 0
+# Compile of TB_Risc-V.vhd failed.
+# Errors: 0, Warnings: 0
+# Compile of Controle.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Controle_ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of GenImm32.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Memory.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_1_to_2.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_2_to_4.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Unitary_reg.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of XREGS.vhd was successful.
+# Errors: 34, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 34, Warnings: 0
+# Errors: 5, Warnings: 0
+# Errors: 34, Warnings: 0
+# Compile of Risc-V.vhd failed.
+# Errors: 5, Warnings: 0
+# Compile of TB_Risc-V.vhd failed.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 17 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 22 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 16 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 21 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 15 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 20 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd failed with 2 errors.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 14 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 3 failed with 21 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 14 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 19 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 15 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 20 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 14 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 19 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 13 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 18 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 7 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 12 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 7 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 12 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 6 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 11 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 3 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 8 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 3 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 8 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 3 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 8 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 2 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 7 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd was successful.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 1 failed with 5 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd failed with 1 errors.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 2 failed with 6 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd was successful.
+# Compile of TB_Risc-V.vhd failed with 5 errors.
+# 11 compiles, 1 failed with 5 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd was successful.
+# Compile of TB_Risc-V.vhd failed with 6 errors.
+# 11 compiles, 1 failed with 6 errors.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd was successful.
+# Compile of TB_Risc-V.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+# Errors: 0, Warnings: 0
+# Compile of Controle.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Controle_ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of GenImm32.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Memory.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_1_to_2.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Mux_2_to_4.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of ULA.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Unitary_reg.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of XREGS.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of Risc-V.vhd was successful.
+# Errors: 0, Warnings: 0
+# Compile of TB_Risc-V.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of Controle.vhd was successful.
+# Compile of Controle_ULA.vhd was successful.
+# Compile of GenImm32.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Mux_1_to_2.vhd was successful.
+# Compile of Mux_2_to_4.vhd was successful.
+# Compile of ULA.vhd was successful.
+# Compile of Unitary_reg.vhd was successful.
+# Compile of XREGS.vhd was successful.
+# Compile of Risc-V.vhd was successful.
+# Compile of TB_Risc-V.vhd was successful.
+# 11 compiles, 0 failed with no errors.

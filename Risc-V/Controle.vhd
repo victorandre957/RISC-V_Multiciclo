@@ -90,6 +90,14 @@ begin
                 OrigBULA <= "01"; -- 4
                 EscrevePC <= '1';
                 EscrevePCB <= '1';
+
+                EscreveReg <= '0';
+                EscreveMem <= '0';
+                LouD <= '0';
+                OrigPC <= '0';
+                ALUop <= "00";
+                Mem2Reg <= "00";
+
                 if fetch_counter = 1 then
                     next_state <= Decode;
                 else
@@ -99,6 +107,10 @@ begin
             -- Decodificação
             when Decode =>
                 OrigBULA <= "10"; -- GemImm
+                EscreveIR <= '0';
+                LeMem <= '0';
+                EscrevePC <= '0';
+                EscrevePCB <= '0';
 
                 case opcode is
                     when LW =>
@@ -126,6 +138,7 @@ begin
             when ExLwSw =>
                 OrigAULA <= "01"; -- rs1
                 OrigBULA <= "10"; -- -- GemImm
+                ALUop <= "00";
                 if opcode = LW then
                     next_state <= MemLw;
                 else
@@ -153,11 +166,13 @@ begin
                 next_state <= IFetch;
 
             when ExJal =>
+                OrigAULA <= "00"; -- PC back
                 OrigBULA <= "10"; -- GemImm
                 OrigPC <= '1'; -- SaidaULA
                 EscrevePC <= '1';
                 Mem2Reg <= "01";  -- PC
                 EscreveReg <= '1';
+                ALUop <= "00";
                 next_state <= IFetch;
 
             when ExJalR =>
@@ -167,16 +182,19 @@ begin
                 EscrevePC <= '1';
                 Mem2Reg <= "01"; -- PC
                 EscreveReg <= '1';
+                ALUop <= "00";
                 next_state <= IFetch;
 
             when ExAuiPC =>
                 OrigAULA <= "00"; -- PCBack register
                 OrigBULA <= "10"; -- GemImm
+                ALUop <= "00";
                 next_state <= MemTR;
 
             when ExLui =>
                 OrigAULA <= "11"; -- zero no mux
                 OrigBULA <= "10"; -- GemImm
+                ALUop <= "00";
                 next_state <= MemTR;
 
             when MemLw =>

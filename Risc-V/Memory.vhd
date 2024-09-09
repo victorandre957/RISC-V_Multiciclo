@@ -9,8 +9,8 @@ entity Memory is
         we       : in std_logic; -- write enable
         re       : in std_logic; -- read enable
         address  : in std_logic_vector(11 downto 0); -- 12 bits de endereço
-        datain   : in std_logic_vector(31 downto 0); -- 32 bits de entrada
-        dataout  : out std_logic_vector(31 downto 0) -- 32 bits de saída
+        datain   : in signed(31 downto 0); -- 32 bits de entrada
+        dataout  : out signed(31 downto 0) -- 32 bits de saída
     );
 end entity Memory;
 
@@ -39,12 +39,12 @@ architecture rtl of Memory is
 
 begin
     addr <= to_integer(unsigned(address));
-    dataout <= ram(addr) when (we = '0' and re = '1') else X"00000000";
+    dataout <= signed(ram(addr)) when (we = '0' and re = '1') else (others => '0');
     process(clock)
     begin
         if rising_edge(clock) then
             if we = '1' and re = '0' then
-                ram(addr) <= datain;
+                ram(addr) <= std_logic_vector(datain);
             end if;
         end if;
     end process;
