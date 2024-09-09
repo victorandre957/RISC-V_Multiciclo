@@ -129,7 +129,7 @@ reg_instr: entity work.unitary_reg
 mux_loud: entity work.mux_1_to_2
     port map (
         A   =>   pc,
-        B   =>   SaidaUla,
+        B   =>   regSaidaUla,
         sel =>   LouD,
         Y   =>   MuxLouD
     );
@@ -139,14 +139,14 @@ memory: entity work.Memory
         clock    => clock,
         we       => EscreveMem,
         re       => LeMem,
-        address  => MuxLouD,
+        address  => MuxLouD(13 downto 2), -- 12 bits sem os 2 menos significativos
         datain   => regB,
         dataout  => memData,
     );
 
 mux_mem_2_reg: entity work.Mux_2_to_4
     port map (
-        A   =>   SaidaUla,
+        A   =>   regSaidaUla,
         B   =>   pc,
         C   =>   regData,
         D   =>   (others => '0'),

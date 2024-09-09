@@ -38,7 +38,7 @@ architecture rtl of Memory is
     signal addr : integer;
 
 begin
-    addr <= to_integer(unsigned(address)) / 4;
+    addr <= to_integer(unsigned(address));
     dataout <= ram(addr) when (we = '0' and re = '1') else X"00000000";
     process(clock)
     begin

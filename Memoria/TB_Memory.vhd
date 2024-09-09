@@ -42,47 +42,41 @@ begin
     -- Geração de estímulos
     stim_proc: process
     begin
-        -- 1. Testar escrita na Memoria (endereços de dados 2048 a 2055)
         we <= '1';  -- Habilita escrita
-        re <= '0';  -- Desabilita Leitura
-        for i in 2048 to 2055 loop  -- Pequena faixa de endereços para teste
-            address <= std_logic_vector(to_unsigned(i, 12));  -- Endereço de escrita
-            datain <= std_logic_vector(to_unsigned(i + 1000, 30)) & "00";  -- Valor a ser escrito
-            wait for CLK_PERIOD;
-        end loop;
+        re <= '0';
 
-        -- 2. Testar leitura da Memoria (endereços de dados 2048 a 2055)
+        -- 0x2000 (13 downto 0) inicio da memoria de dados
+        address <= "001000000000";  -- Endereço de escrita
+        datain <= std_logic_vector(to_unsigned(8192, 30)) & "00";  -- Valor a ser escrito
+        wait for CLK_PERIOD;
+
         we <= '0';  -- Desabilita escrita
         re <= '1';  -- Habilita Leitura
-        for i in 2048 to 2055 loop
-            address <= std_logic_vector(to_unsigned(i, 12));  -- Endereço de leitura
-            wait for CLK_PERIOD;  -- Espera 1 ciclo de clock para ler
-        end loop;
 
-        -- 3. Testar leitura da área de código (endereços 0 a 10) -- Instruções carregadas de arquivo
+        address <= "001000000000"; -- Endereço de leitura
+        wait for CLK_PERIOD;  -- Espera 1 ciclo de clock para ler
+
+
         we <= '0';  -- Desabilita escrita
         re <= '1';  -- Habilita Leitura
-        for i in 0 to 10 loop  -- Leitura de algumas instruções
-            address <= std_logic_vector(to_unsigned(i, 12));  -- Endereço de instrução
-            wait for CLK_PERIOD;
-        end loop;
 
-         -- 4. Escrever na área de instruções (endereços 90 a 100)
+        -- index 1  memoria de instrução
+        address <= "000000000001";  -- Endereço de instrução
+        wait for CLK_PERIOD;
+
         we <= '1';  -- Habilita escrita
         we <= '0';  -- Desabilita escrita
-        for i in 90 to 100 loop
-            address <= std_logic_vector(to_unsigned(i, 12));  -- Endereço de escrita (área de código)
-            datain <= std_logic_vector(to_unsigned(i + 500, 30)) & "00";  -- Valor arbitrário para escrita
-            wait for CLK_PERIOD;
-        end loop;
 
-        -- 5. Testar leitura da área de instruções (endereços 90 a 100)
+         -- index 2  memoria de instrução
+        address <= "001000000001";  -- Endereço de escrita (área de código)
+        datain <= std_logic_vector(to_unsigned(8 + 500, 30)) & "00";  -- Valor arbitrário para escrita
+        wait for CLK_PERIOD;
+
         we <= '0';  -- Desabilita escrita
         re <= '1';  -- Habilita Leitura
-        for i in 90 to 100 loop
-            address <= std_logic_vector(to_unsigned(i, 12));  -- Endereço de leitura (área de código)
-            wait for CLK_PERIOD;
-        end loop;
+
+        address <= "001000000001";  -- Endereço de leitura (área de código)
+        wait for CLK_PERIOD;
 
         wait;
     end process;
