@@ -8,6 +8,8 @@ entity Risc_V_Multicycle is
         reset          : in STD_LOGIC;
         regInstrOut    : out STD_LOGIC_VECTOR(31 downto 0);
         regSaidaUlaOut : out signed(31 downto 0);
+        regDataUlaOut  : out signed(31 downto 0);
+        Mem2RegOut     : out STD_LOGIC_VECTOR(1 downto 0);
         pcOut          : out unsigned(31 downto 0)
     );
 end entity Risc_V_Multicycle;
@@ -39,7 +41,6 @@ architecture rtl of Risc_V_Multicycle is
     signal A, regA, B, regB                                : signed(31 downto 0);
 
 begin
-
     control : entity work.risc_v_control
         port map(
             clk           => clock,
@@ -61,68 +62,12 @@ begin
             Mem2Reg       => Mem2Reg
         );
 
-    controle_ula : entity work.risc_v_ULA_control
-        port map(
-            funct3 => STD_LOGIC_VECTOR(resize(unsigned(regInstr(14 downto 12)), 3)),
-            funct7 => STD_LOGIC_VECTOR(resize(unsigned(regInstr(31 downto 25)), 7)),
-            AluOp  => AluOp,
-            UlaSel => UlaSel
-        );
-
-    a_reg : entity work.unitary_reg
-        port map(
-            clk     => clock,
-            enable  => '1',
-            dataIn  => A,
-            dataOut => regA
-        );
-
-    b_reg : entity work.unitary_reg
-        port map(
-            clk     => clock,
-            enable  => '1',
-            dataIn  => B,
-            dataOut => regB
-        );
-
     pc_reg : entity work.unitary_reg
         port map(
             clk     => clock,
             enable  => EscrevePC or (EscrevePCCond and comp_flag),
             dataIn  => MuxOrigPC,
             dataOut => pc
-        );
-
-    pc_back : entity work.unitary_reg
-        port map(
-            clk     => clock,
-            enable  => EscrevePCB,
-            dataIn  => pc,
-            dataOut => pcBack
-        );
-
-    saida_ula : entity work.unitary_reg
-        port map(
-            clk     => clock,
-            enable  => '1',
-            dataIn  => SaidaUla,
-            dataOut => regSaidaUla
-        );
-
-    reg_data : entity work.unitary_reg
-        port map(
-            clk     => clock,
-            enable  => '1',
-            dataIn  => memData,
-            dataOut => regData
-        );
-
-    reg_instr : entity work.unitary_reg
-        port map(
-            clk     => clock,
-            enable  => EscreveIR,
-            dataIn  => memData,
-            dataOut => regInstr
         );
 
     mux_loud : entity work.mux_1_to_2
@@ -141,6 +86,22 @@ begin
             address => STD_LOGIC_VECTOR(resize(unsigned(MuxLouD(13 downto 2)), 12)), -- 12 bits sem os 2 menos significativos
             datain  => regB,
             dataout => memData
+        );
+
+    reg_data : entity work.unitary_reg
+        port map(
+            clk     => clock,
+            enable  => '1',
+            dataIn  => memData,
+            dataOut => regData
+        );
+
+    reg_instr : entity work.unitary_reg
+        port map(
+            clk     => clock,
+            enable  => EscreveIR,
+            dataIn  => memData,
+            dataOut => regInstr
         );
 
     mux_mem_2_reg : entity work.Mux_2_to_4
@@ -171,6 +132,30 @@ begin
             imm32 => imm32
         );
 
+    a_reg : entity work.unitary_reg
+        port map(
+            clk     => clock,
+            enable  => '1',
+            dataIn  => A,
+            dataOut => regA
+        );
+
+    b_reg : entity work.unitary_reg
+        port map(
+            clk     => clock,
+            enable  => '1',
+            dataIn  => B,
+            dataOut => regB
+        );
+
+    pc_back : entity work.unitary_reg
+        port map(
+            clk     => clock,
+            enable  => EscrevePCB,
+            dataIn  => pc,
+            dataOut => pcBack
+        );
+
     mux_orig_aula : entity work.Mux_2_to_4
         port map(
             A   => pcBack,
@@ -191,6 +176,14 @@ begin
             Y   => MuxOrigBULA
         );
 
+    controle_ula : entity work.risc_v_ULA_control
+        port map(
+            funct3 => STD_LOGIC_VECTOR(resize(unsigned(regInstr(14 downto 12)), 3)),
+            funct7 => STD_LOGIC_VECTOR(resize(unsigned(regInstr(31 downto 25)), 7)),
+            AluOp  => AluOp,
+            UlaSel => UlaSel
+        );
+
     ula : entity work.ULA
         port map(
             opcode    => UlaSel,
@@ -198,6 +191,14 @@ begin
             B         => MuxOrigBULA,
             result    => SaidaUla,
             comp_flag => comp_flag
+        );
+
+    saida_ula : entity work.unitary_reg
+        port map(
+            clk     => clock,
+            enable  => '1',
+            dataIn  => SaidaUla,
+            dataOut => regSaidaUla
         );
 
     mux_orig_pc : entity work.mux_1_to_2
@@ -211,5 +212,7 @@ begin
     regInstrOut    <= STD_LOGIC_VECTOR(unsigned(regInstr));
     regSaidaUlaOut <= regSaidaUla;  -- need check instructions
     pcOut          <= unsigned(pc); -- need check jal and beq
+    regDataUlaOut  <= MuxMem2Reg;
+    Mem2RegOut     <= Mem2Reg;
 
 end architecture rtl;

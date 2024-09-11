@@ -106,6 +106,7 @@ begin
 
                 -- Decodificação
             when Decode =>
+                OrigAULA   <= "00";
                 OrigBULA   <= "10"; -- GemImm
                 EscreveIR  <= '0';
                 LeMem      <= '0';

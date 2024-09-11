@@ -14,23 +14,17 @@ entity XREGS is
 end XREGS;
 
 architecture Reg of XREGS is
-    type REGISTERS is array(0 to 31) of signed(WSIZE - 1 downto 0); -- Registradores são signed
-    signal breg : REGISTERS := (others => (others => '0'));         -- Inicializa os registradores com 0
+    type RegisterFile is array (0 to 31) of  signed(31 downto 0);
+    signal registers : RegisterFile := (others => (others => '0'));
 begin
-
-    process (rs1, rs2, breg)
-    begin
-        ro1 <= breg(to_integer(unsigned(rs1))); -- Saída ro1 como signed
-        ro2 <= breg(to_integer(unsigned(rs2))); -- Saída ro2 como signed
-    end process;
-
     process (clk)
     begin
         if rising_edge(clk) then
-            if wren = '1' and to_integer(unsigned(rd)) /= 0 then
-                breg(to_integer(unsigned(rd))) <= data; -- Escreve dado signed
+            if wren = '1' and to_integer(unsigned(rd)) > 0 and to_integer(unsigned(rd)) < 32 then
+                registers(to_integer(unsigned(rd))) <= data;
             end if;
-            breg(0) <= (others => '0'); -- O registrador 0 sempre contém zero
+            ro1 <= registers(to_integer(unsigned(rs1)));
+            ro2 <= registers(to_integer(unsigned(rs2)));
         end if;
     end process;
 
