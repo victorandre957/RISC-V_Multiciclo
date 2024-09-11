@@ -6,7 +6,6 @@ entity tb_risc_v_control is
 end entity;
 
 architecture behavior of tb_risc_v_control is
-    -- Component instanciado (Unidade de Controle)
     component risc_v_control
         port (
             clk       : in STD_LOGIC;
@@ -14,7 +13,6 @@ architecture behavior of tb_risc_v_control is
             opcode    : in STD_LOGIC_VECTOR(6 downto 0);
             zero_flag : in STD_LOGIC;
 
-            -- Sinais de controle
             EscrevePCCond : out STD_LOGIC;
             EscrevePC     : out STD_LOGIC;
             LouD          : out STD_LOGIC;
@@ -31,13 +29,11 @@ architecture behavior of tb_risc_v_control is
         );
     end component;
 
-    -- Sinais de entrada
     signal clk       : STD_LOGIC := '0';
     signal rst       : STD_LOGIC := '0';
     signal opcode    : STD_LOGIC_VECTOR(6 downto 0);
     signal zero_flag : STD_LOGIC := '0';
 
-    -- Sinais de saída
     signal EscrevePCCond : STD_LOGIC;
     signal EscrevePC     : STD_LOGIC;
     signal LouD          : STD_LOGIC;
@@ -52,11 +48,9 @@ architecture behavior of tb_risc_v_control is
     signal EscreveReg    : STD_LOGIC;
     signal Mem2Reg       : STD_LOGIC_VECTOR(1 downto 0);
 
-    -- Clock period definition
     constant clk_period : TIME := 1 ns;
 
 begin
-    -- Instância do componente do controle
     uut : risc_v_control
     port map(
         clk       => clk,
@@ -64,7 +58,6 @@ begin
         opcode    => opcode,
         zero_flag => zero_flag,
 
-        -- Saídas de controle
         EscrevePCCond => EscrevePCCond,
         EscrevePC     => EscrevePC,
         LouD          => LouD,
@@ -80,7 +73,6 @@ begin
         Mem2Reg       => Mem2Reg
     );
 
-    -- Clock process definitions
     clk_process : process
     begin
         clk <= '0';
@@ -89,19 +81,15 @@ begin
         wait for clk_period / 2;
     end process;
 
-    -- Test process for LW passing through all stages
     test_process_LW : process
     begin
 
-        -- Inicialização
         rst <= '1';
         wait for clk_period;
         rst <= '0';
 
-        -- Testando LW (Load Word)
         wait for clk_period;
 
-        -- Estágio 1: Fetch
         assert (LouD = '0') report "Erro no sinal LouD no Fetch (LW)" severity error;
         assert (LeMem = '1') report "Erro no sinal LeMem no Fetch (LW)" severity error;
         assert (EscreveIR = '1') report "Erro no sinal EscreveIR no Fetch (LW)" severity error;
@@ -112,28 +100,24 @@ begin
         assert (EscrevePC = '1') report "Erro no sinal EscrevePC no Fetch (LW)" severity error;
         assert (EscrevePCB = '1') report "Erro no sinal EscrevePCB no Fetch (LW)" severity error;
 
-        opcode <= "0000011"; -- Opcode para LW
+        opcode <= "0000011";
 
         wait for clk_period;
 
-        -- Estágio 2: Decode
         assert (OrigAULA = "00") report "Erro no sinal OrigAULA no Fetch (LW)" severity error;
         assert (OrigBULA = "10") report "Erro no sinal OrigBULA no Fetch (LW)" severity error;
         assert (ALUop = "00") report "Erro no sinal ALUop no Fetch (LW)" severity error;
         wait for clk_period;
 
-        -- Estágio 3: Execute (Cálculo do endereço de memória)
         assert (OrigAULA = "01") report "Erro no sinal OrigAULA no Fetch (LW)" severity error;
         assert (OrigBULA = "10") report "Erro no sinal OrigBULA no Fetch (LW)" severity error;
         assert (ALUop = "00") report "Erro no sinal ALUop no Fetch (LW)" severity error;
         wait for clk_period;
 
-        -- Estágio 4: MemRead (Leitura da memória)
         assert (LouD = '1') report "Erro no sinal LeMem no MemRead (LW)" severity error;
         assert (LeMem = '1') report "Erro no sinal LeMem no MemRead (LW)" severity error;
         wait for clk_period;
 
-        -- Estágio 5: WriteBack (Escrita no registrador)
         assert (Mem2Reg = "10") report "Erro no sinal Mem2Reg no WriteBack (LW)" severity error;
         assert (EscreveReg = '1') report "Erro no sinal EscreveReg no WriteBack (LW)" severity error;
 

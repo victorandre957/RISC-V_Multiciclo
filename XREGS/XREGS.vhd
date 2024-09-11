@@ -8,13 +8,13 @@ entity XREGS is
         clk          : in STD_LOGIC;
         wren         : in STD_LOGIC;
         rs1, rs2, rd : in STD_LOGIC_VECTOR(4 downto 0);
-        data         : in STD_LOGIC_VECTOR(WSIZE - 1 downto 0);
-        ro1, ro2     : out STD_LOGIC_VECTOR(WSIZE - 1 downto 0)
+        data         : in signed(WSIZE - 1 downto 0);
+        ro1, ro2     : out signed(WSIZE - 1 downto 0)
     );
 end XREGS;
 
 architecture Reg of XREGS is
-    type REGISTERS is array(0 to 31) of STD_LOGIC_VECTOR(WSIZE - 1 downto 0);
+    type REGISTERS is array(0 to 31) of signed(WSIZE - 1 downto 0);
     signal breg : REGISTERS := (others => (others => '0'));
 begin
 

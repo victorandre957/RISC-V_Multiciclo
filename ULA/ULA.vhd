@@ -40,36 +40,44 @@ begin
     process (current_operation, A, B)
     begin
         case current_operation is
-            when ADD_OP =>
+            when ADD_OP                =>
+                alu_result      <= (others => '0');
                 alu_result      <= A + B;
                 comparison_flag <= '0';
 
-            when SUB_OP =>
+            when SUB_OP                =>
+                alu_result      <= (others => '0');
                 alu_result      <= A - B;
                 comparison_flag <= '0';
 
-            when AND_OP =>
+            when AND_OP                =>
+                alu_result      <= (others => '0');
                 alu_result      <= A and B;
                 comparison_flag <= '0';
 
-            when OR_OP =>
+            when OR_OP                 =>
+                alu_result      <= (others => '0');
                 alu_result      <= A or B;
                 comparison_flag <= '0';
 
-            when XOR_OP =>
+            when XOR_OP                =>
+                alu_result      <= (others => '0');
                 alu_result      <= A xor B;
                 comparison_flag <= '0';
 
-            when SLL_OP =>
-                alu_result      <= A sll to_integer(B);
+            when SLL_OP                =>
+                alu_result      <= (others => '0');
+                alu_result      <= A sll to_integer(unsigned(B(4 downto 0)));
                 comparison_flag <= '0';
 
-            when SRL_OP =>
-                alu_result      <= A srl to_integer(B);
+            when SRL_OP                =>
+                alu_result      <= (others => '0');
+                alu_result      <= A srl to_integer(unsigned(B(4 downto 0)));
                 comparison_flag <= '0';
 
-            when SRA_OP =>
-                alu_result      <= shift_right(A, to_integer(B));
+            when SRA_OP                =>
+                alu_result      <= (others => '0');
+                alu_result      <= shift_right(A, to_integer(unsigned(B(4 downto 0))));
                 comparison_flag <= '0';
 
             when SLT_OP =>

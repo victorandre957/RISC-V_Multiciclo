@@ -4,101 +4,93 @@ use ieee.numeric_std.all;
 
 entity risc_v_control is
     port (
-        clk       : in std_logic;
-        rst       : in std_logic;
-        opcode    : in std_logic_vector(6 downto 0);
-        zero_flag : in std_logic;
+        clk       : in STD_LOGIC;
+        rst       : in STD_LOGIC;
+        opcode    : in STD_LOGIC_VECTOR(6 downto 0);
+        zero_flag : in STD_LOGIC;
 
-        -- Saídas de controle
-        EscrevePCCond : out std_logic;
-        EscrevePC     : out std_logic;
-        LouD          : out std_logic;
-        EscreveMem    : out std_logic;
-        LeMem         : out std_logic;
-        EscreveIR     : out std_logic;
-        OrigPC        : out std_logic;
-        ALUop         : out std_logic_vector(1 downto 0);
-        OrigAULA      : out std_logic_vector(1 downto 0);
-        OrigBULA      : out std_logic_vector(1 downto 0);
-        EscrevePCB    : out std_logic;
-        EscreveReg    : out std_logic;
-        Mem2Reg       : out std_logic_vector(1 downto 0)
+        EscrevePCCond : out STD_LOGIC;
+        EscrevePC     : out STD_LOGIC;
+        LouD          : out STD_LOGIC;
+        EscreveMem    : out STD_LOGIC;
+        LeMem         : out STD_LOGIC;
+        EscreveIR     : out STD_LOGIC;
+        OrigPC        : out STD_LOGIC;
+        ALUop         : out STD_LOGIC_VECTOR(1 downto 0);
+        OrigAULA      : out STD_LOGIC_VECTOR(1 downto 0);
+        OrigBULA      : out STD_LOGIC_VECTOR(1 downto 0);
+        EscrevePCB    : out STD_LOGIC;
+        EscreveReg    : out STD_LOGIC;
+        Mem2Reg       : out STD_LOGIC_VECTOR(1 downto 0)
     );
 end entity;
 
 architecture fsm of risc_v_control is
     type state_type is (IFetch, Decode, ExLwSw, ExTr, ExTri, ExAuiPC, ExLui, ExBeq, ExJal, ExJalR, MemLw, MemSw, MemTR, WriteBeq);
-    signal state, next_state : state_type;
+    signal state      : state_type := IFetch;
+    signal next_state : state_type := IFetch;
 
-    -- Adicionar contador para o estado IFetch
-    signal fetch_counter : integer range 0 to 1 := 0;
-
-    -- Definir os opcodes das instruções RISC-V
-    constant LW   : std_logic_vector(6 downto 0) := "0000011";
-    constant SW   : std_logic_vector(6 downto 0) := "0100011";
-    constant R_TYPE : std_logic_vector(6 downto 0) := "0110011";
-    constant I_TYPE : std_logic_vector(6 downto 0) := "0010011";
-    constant JAL : std_logic_vector(6 downto 0) := "1101111";
-    constant JALR : std_logic_vector(6 downto 0) := "1100111";
-    constant BRANCH : std_logic_vector(6 downto 0) := "1100011";
-    constant AUIPC : std_logic_vector(6 downto 0) := "0010111";
-    constant LUI : std_logic_vector(6 downto 0) := "0110111";
+    constant LW     : STD_LOGIC_VECTOR(6 downto 0) := "0000011";
+    constant SW     : STD_LOGIC_VECTOR(6 downto 0) := "0100011";
+    constant R_TYPE : STD_LOGIC_VECTOR(6 downto 0) := "0110011";
+    constant I_TYPE : STD_LOGIC_VECTOR(6 downto 0) := "0010011";
+    constant JAL    : STD_LOGIC_VECTOR(6 downto 0) := "1101111";
+    constant JALR   : STD_LOGIC_VECTOR(6 downto 0) := "1100111";
+    constant BRANCH : STD_LOGIC_VECTOR(6 downto 0) := "1100011";
+    constant AUIPC  : STD_LOGIC_VECTOR(6 downto 0) := "0010111";
+    constant LUI    : STD_LOGIC_VECTOR(6 downto 0) := "0110111";
 
 begin
-    -- Estado s�ncrono com clock
     process (clk, rst)
     begin
         if rst = '1' then
             state <= IFetch;
-            fetch_counter <= 0;
         elsif rising_edge(clk) then
             state <= next_state;
-            if state = IFetch then
-                if fetch_counter < 1 then
-                    fetch_counter <= fetch_counter + 1;
-                end if;
-            else
-                fetch_counter <= 0;
-            end if;
         end if;
     end process;
 
-    -- Máquina de estados do controle
-    process (state, opcode, zero_flag, fetch_counter)
+    process (clk)
     begin
-        -- Inicialização das saídas de controle
         EscrevePCCond <= '0';
-        EscrevePC <= '0';
-        LouD <= '0'; -- PC
-        EscreveMem <= '0';
-        LeMem <= '0';
-        EscreveIR <= '0';
-        OrigPC <= '0'; -- ULA
-        ALUop <= "00"; -- ADD
-        OrigAULA <= "00"; -- PCBack register
-        OrigBULA <= "00"; -- rs2
-        EscrevePCB <= '0';
-        EscreveReg <= '0';
-        Mem2Reg <= "00"; -- SaidaULA
+        EscrevePC     <= '0';
+        LouD          <= '0';
+        EscreveMem    <= '0';
+        LeMem         <= '0';
+        EscreveIR     <= '0';
+        OrigPC        <= '0';
+        ALUop         <= "00";
+        OrigAULA      <= "00";
+        OrigBULA      <= "00";
+        EscrevePCB    <= '0';
+        EscreveReg    <= '0';
+        Mem2Reg       <= "00";
 
         case state is
-            -- Instrução Fetch (IFetch)
             when IFetch =>
-                LeMem <= '1';
-                EscreveIR <= '1';
-                OrigAULA <= "10"; -- PC
-                OrigBULA <= "01"; -- 4
-                EscrevePC <= '1';
+                LeMem      <= '1';
+                EscreveIR  <= '1';
+                OrigAULA   <= "10";
+                OrigBULA   <= "01";
+                EscrevePC  <= '1';
                 EscrevePCB <= '1';
-                if fetch_counter = 1 then
-                    next_state <= Decode;
-                else
-                    next_state <= IFetch;
-                end if;
 
-            -- Decodificação
+                EscreveReg <= '0';
+                EscreveMem <= '0';
+                LouD       <= '0';
+                OrigPC     <= '0';
+                ALUop      <= "00";
+                Mem2Reg    <= "00";
+
+                next_state <= Decode;
+
             when Decode =>
-                OrigBULA <= "10"; -- GemImm
+                OrigAULA   <= "00";
+                OrigBULA   <= "10";
+                EscreveIR  <= '0';
+                LeMem      <= '0';
+                EscrevePC  <= '0';
+                EscrevePCB <= '0';
 
                 case opcode is
                     when LW =>
@@ -124,8 +116,9 @@ begin
                 end case;
 
             when ExLwSw =>
-                OrigAULA <= "01"; -- rs1
-                OrigBULA <= "10"; -- -- GemImm
+                OrigAULA <= "01";
+                OrigBULA <= "10";
+                ALUop    <= "00";
                 if opcode = LW then
                     next_state <= MemLw;
                 else
@@ -133,69 +126,74 @@ begin
                 end if;
 
             when ExTr =>
-                OrigAULA <= "01"; -- rs1
-                OrigBULA <= "00"; -- rs2
-                ALUop <= "11"; -- LogArit2
+                OrigAULA   <= "01";
+                OrigBULA   <= "00";
+                ALUop      <= "11";
                 next_state <= MemTR;
 
             when ExTri =>
-                OrigAULA <= "01"; -- rs1
-                OrigBULA <= "10"; -- GemImm
-                ALUop <= "10"; -- LogArit
+                OrigAULA   <= "01";
+                OrigBULA   <= "10";
+                ALUop      <= "10";
                 next_state <= MemTR;
 
             when ExBeq =>
-                OrigAULA <= "01"; -- rs1
-                OrigBULA <= "00"; -- rs2
-                ALUop <= "01"; -- rs2
-                OrigPC <= '1';
+                OrigAULA      <= "01";
+                OrigBULA      <= "00";
+                ALUop         <= "01";
+                OrigPC        <= '1';
                 EscrevePCCond <= '1';
-                next_state <= IFetch;
+                next_state    <= IFetch;
 
             when ExJal =>
-                OrigBULA <= "10"; -- GemImm
-                OrigPC <= '1'; -- SaidaULA
-                EscrevePC <= '1';
-                Mem2Reg <= "01";  -- PC
+                OrigAULA   <= "00";
+                OrigBULA   <= "10";
+                OrigPC     <= '1';
+                EscrevePC  <= '1';
+                Mem2Reg    <= "01";
                 EscreveReg <= '1';
+                ALUop      <= "00";
                 next_state <= IFetch;
 
             when ExJalR =>
-                OrigPC <= '1'; -- SaidaULA
-                OrigAULA <= "01"; -- rs1
-                OrigBULA <= "10"; -- GemImm
-                EscrevePC <= '1';
-                Mem2Reg <= "01"; -- PC
+                OrigPC     <= '0';
+                OrigAULA   <= "01";
+                OrigBULA   <= "10";
+                EscrevePC  <= '1';
+                Mem2Reg    <= "01";
                 EscreveReg <= '1';
+                ALUop      <= "00";
                 next_state <= IFetch;
 
             when ExAuiPC =>
-                OrigAULA <= "00"; -- PCBack register
-                OrigBULA <= "10"; -- GemImm
+                OrigAULA   <= "00";
+                OrigBULA   <= "10";
+                ALUop      <= "00";
                 next_state <= MemTR;
 
             when ExLui =>
-                OrigAULA <= "11"; -- zero no mux
-                OrigBULA <= "10"; -- GemImm
+                OrigAULA   <= "11";
+                OrigBULA   <= "10";
+                ALUop      <= "00";
                 next_state <= MemTR;
 
             when MemLw =>
-                LouD <= '1'; -- PC
-                LeMem <= '1';
+                LouD       <= '1';
+                LeMem      <= '1';
                 next_state <= WriteBeq;
 
             when MemSw =>
-                LouD <= '1';
+                LouD       <= '1';
                 EscreveMem <= '1';
                 next_state <= IFetch;
 
             when MemTR =>
-                Mem2Reg <= "00"; -- SaidaULA
+                Mem2Reg    <= "00";
                 EscreveReg <= '1';
                 next_state <= IFetch;
 
             when WriteBeq =>
-                Mem2Reg <= "10"; -- Reg Data Memory
+                Mem2Reg    <= "10";
                 EscreveReg <= '1';
                 next_state <= IFetch;
 
@@ -204,5 +202,3 @@ begin
         end case;
     end process;
 end architecture;
-
-
