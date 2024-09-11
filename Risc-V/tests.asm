@@ -1,62 +1,59 @@
 .text
 
-# LUI
-    li    x5,   0x2000
-    auipc x4, 2      
-    
-# LW e SW
-    li x6, 10			
-    sw x6, 0(x5)                
-    lw x7, 0(x5)               
+    lui x5, 2
+    addi x5, x5, 0
+    auipc x7, 2
 
-# ADD e ADDI
-    add x8, x6, x7           
+    addi x6, x0, 10
+    add x8, x6, x6
+    sub x9, x8, x6
 
-# SUB
-    sub x9, x8, x7           
+    and x10, x8, x6
+    or x11, x8, x6
+    xor x12, x8, x6
 
-# AND e OR
-    and x10, x8, x7           
-    or x11, x8, x7            
+    slt x13, x6, x8
 
-# XOR e SLT
-    xor x12, x8, x7           
-    slt x13, x7, x8          
+    jal x14, 0x00000008
+    nop
 
-# BEQ, BNE, BLT, BLTU, BGE, BGEU
-    beq x10, x0, beq_label       
-beq_label:
-    blt x7, x8, blt_label        
-blt_label:
-    bge x8, x7, bge_label        
-bge_label:
-    bltu x7, x8, bltu_label      
-bltu_label:
-    bgeu x8, x7, bgeu_label      
-bgeu_label:
-    bne x10, x0, bne_label      
+    jalr x15, 12(x14)
+    nop
 
-# JAL e JALR
-bne_label:
-    jal x14, jump_label      
-jump_label:
-    jalr x15, 4(x14)        
+    ori x16, x6, 0XFF
+    and x17, x6, 0XF
+    xori x18, x6, 0XF0
 
-# ORI, ANDI, XORI
-    ori x16, x6, 0xFF        
-    andi x17, x6, 0xF        
-    xori x18, x6, 0xF0       
+    slti x19, x6, 100
+    sltiu x20, x6, 100
 
-# SLTI, SLTIU
-    slti x19, x6, 100        
-    sltiu x20, x6, 100      
+    sll x21, x6, x5
+    srl x22, x6, x5
+    sra x23, x6, x5
 
-# SLL, SRL, SRA
-    sll x21, x7, x5          
-    srl x22, x7, x5          
-    sra x23, x7, x5          
+    slli x24, x6, 2
+    srli x25, x6, 2
+    srai x26, x6, 2
 
-# SLLI, SRLI, SRAI
-    slli x24, x7, 2          
-    srli x25, x7, 2          
-    srai x26, x7, 2
+    beq x6, x9, 0x00000008
+    nop
+
+    blt x6, x9, 0x00000008
+    nop
+
+    bge x8, x6, 0x00000008
+    nop
+
+    bltu x6, x8, 0x00000008
+    nop
+
+    bgeu x8, x0 0x00000008
+    nop
+
+    bne x8, x0 0x00000008
+    nop
+
+    lui x9, 2
+    sw x6, 0(x29)
+    lw x30, 0(x29)
+    add x30, x0, x30

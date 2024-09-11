@@ -102,19 +102,19 @@ begin
         -- test write in xregs
         wait for CLK_PERIOD * 3.4; --check result before instruction ends in 4 cycles
         assert (regInstrOut = x"00028293" and MuxMem2RegOut = x"00002000")
-        report "Test 1.5 Failed: addi x5, x5, 0"
+        report "Test 2 Failed: addi x5, x5, 0"
             severity error;
         wait for CLK_PERIOD * 0.6; -- wait instruction end
 
         wait for CLK_PERIOD * 3.4; --check result before instruction ends in 4 cycles
         assert (regInstrOut = x"00002217" and MuxMem2RegOut = x"00002008")
-        report "Test 2 Failed: auipc x7, 2"
+        report "Test 3 Failed: auipc x7, 2"
             severity error;
         wait for CLK_PERIOD * 0.6; -- wait instruction end
 
         wait for CLK_PERIOD * 3.4; --check result before instruction ends in 4 cycles
         assert (regInstrOut = x"00a00313" and MuxMem2RegOut = x"0000000a")
-        report "Test 3 Failed: addi x6, x0, 10"
+        report "Test 4 Failed: addi x6, x0, 10"
             severity error;
         wait for CLK_PERIOD * 0.6; -- wait instruction end
 
@@ -270,25 +270,25 @@ begin
 
         wait for CLK_PERIOD * 3.4; --check result before instruction ends in 4 cycles
         assert (regInstrOut = x"00002eb7" and MuxMem2RegOut = x"00002000")
-        report "Test 30 Failed: lui x9, 2" -- ensure the jump worked 
+        report "Test 30 Failed: lui x9, 2" -- address to save
             severity error;
         wait for CLK_PERIOD * 0.6; -- wait instruction end
 
         wait for CLK_PERIOD * 3.4; --check result before instruction ends in 4 cycles
         assert (regInstrOut = x"006ea023" and MuxLouDOut = x"00002000")
-        report "Test 31 Failed: sw x6, 0(x29)" -- ensure the jump worked 
+        report "Test 31 Failed: sw x6, 0(x29)" 
             severity error;
         wait for CLK_PERIOD * 0.6; -- wait instruction end
 
         wait for CLK_PERIOD * 4.4; --check result before instruction ends in 4 cycles
         assert (regInstrOut = x"000eaf03" and MuxMem2RegOut = x"0000000a")
-        report "Test 32 Failed: lw x30, 0(x29)" -- ensure the jump worked 
+        report "Test 32 Failed: lw x30, 0(x29)" 
             severity error;
         wait for CLK_PERIOD * 0.6; -- wait instruction end
 
         wait for CLK_PERIOD * 3.4; --check result before instruction ends in 4 cycles
         assert (regInstrOut = x"01e00f33" and MuxMem2RegOut = x"0000000a")
-        report "Test 33 Failed: add x30, x0, x30" -- ensure the jump worked
+        report "Test 33 Failed: add x30, x0, x30" -- ensure the load worked
             severity error;
         wait for CLK_PERIOD * 0.6; -- wait instruction end
         
