@@ -155,7 +155,7 @@ begin
             when ExJal =>
                 OrigAULA   <= "00"; -- PC back
                 OrigBULA   <= "10"; -- GemImm
-                OrigPC     <= '0';  -- SaidaULA
+                OrigPC     <= '1';  -- SaidaULA
                 EscrevePC  <= '1';
                 Mem2Reg    <= "01"; -- PC
                 EscreveReg <= '1';
