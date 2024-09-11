@@ -19,5 +19,9 @@
 *.bak
 *.swp
 *.swo
+*.mpf
+*.mti
+
+transcript*
 
 **/vsim/
