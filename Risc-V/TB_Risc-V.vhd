@@ -288,7 +288,7 @@ begin
 
         wait for CLK_PERIOD * 3.4; --check result before instruction ends in 4 cycles
         assert (regInstrOut = x"01e00f33" and MuxMem2RegOut = x"0000000a")
-        report "Test 31 Failed: add x30, x0, x30" -- ensure the jump worked 
+        report "Test 33 Failed: add x30, x0, x30" -- ensure the jump worked
             severity error;
         wait for CLK_PERIOD * 0.6; -- wait instruction end
         
