@@ -155,7 +155,7 @@ begin
             when ExJal =>
                 OrigAULA   <= "00"; -- PC back
                 OrigBULA   <= "10"; -- GemImm
-                OrigPC     <= '1';  -- SaidaULA
+                OrigPC     <= '0';  -- SaidaULA
                 EscrevePC  <= '1';
                 Mem2Reg    <= "01"; -- PC
                 EscreveReg <= '1';
@@ -163,7 +163,7 @@ begin
                 next_state <= IFetch;
 
             when ExJalR =>
-                OrigPC     <= '1';  -- SaidaULA
+                OrigPC     <= '0';  -- SaidaULA
                 OrigAULA   <= "01"; -- rs1
                 OrigBULA   <= "10"; -- GemImm
                 EscrevePC  <= '1';

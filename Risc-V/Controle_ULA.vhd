@@ -67,7 +67,7 @@ begin
             when "11" =>
                 case funct3 is
                     when "000" =>
-                        if funct7(6) = '0' then
+                        if funct7(5) = '0' then
                             Ula_in <= "0000"; -- ADD
                         else
                             Ula_in <= "0001"; -- SUB

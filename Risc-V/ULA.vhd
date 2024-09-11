@@ -67,17 +67,17 @@ begin
 
             when SLL_OP =>
                 alu_result      <= (others => '0');
-                alu_result      <= A sll to_integer(B);
+                alu_result      <= A sll to_integer(unsigned(B(4 downto 0)));
                 comparison_flag <= '0';
 
             when SRL_OP =>
                 alu_result      <= (others => '0');
-                alu_result      <= A srl to_integer(B);
+                alu_result      <= A srl to_integer(unsigned(B(4 downto 0)));
                 comparison_flag <= '0';
 
             when SRA_OP =>
                 alu_result      <= (others => '0');
-                alu_result      <= shift_right(A, to_integer(B));
+                alu_result      <= shift_right(A, to_integer(unsigned(B(4 downto 0))));
                 comparison_flag <= '0';
 
             when SLT_OP =>
