@@ -4,13 +4,20 @@ use ieee.numeric_std.all;
 
 entity Risc_V_Multicycle is
     port (
-        clock          : in STD_LOGIC;
-        reset          : in STD_LOGIC;
-        regInstrOut    : out STD_LOGIC_VECTOR(31 downto 0);
-        regSaidaUlaOut : out signed(31 downto 0);
-        regDataUlaOut  : out signed(31 downto 0);
-        Mem2RegOut     : out STD_LOGIC_VECTOR(1 downto 0);
-        pcOut          : out unsigned(31 downto 0)
+        clock                                                                                                                   : in STD_LOGIC;
+        reset                                                                                                                   : in STD_LOGIC;
+        regInstrOut                                                                                                             : out STD_LOGIC_VECTOR(31 downto 0);
+        regSaidaUlaOut                                                                                                          : out signed(31 downto 0);
+        regDataUlaOut                                                                                                           : out signed(31 downto 0);
+        imm32Out                                                                                                                : out signed(31 downto 0);
+        AluOpOut, OrigAULAOut, OrigBULAOut, Mem2RegOut                                                                          : out STD_LOGIC_VECTOR(1 downto 0);
+        EscrevePCCondOut, EscrevePCOut, LouDOut, EscreveMemOut, LeMemOut, EscreveIROut, OrigPCOut, EscrevePCBOut, EscreveRegOut : out STD_LOGIC;
+        UlaSelOut                                                                                                               : out STD_LOGIC_VECTOR(3 downto 0);
+        comp_flagOut                                                                                                            : out STD_LOGIC;
+        MuxOrigPCOut, MuxOrigAULAOut, MuxOrigBULAOut, MuxLouDOut, MuxMem2RegOut                                                 : out signed(31 downto 0);
+        SaidaUlaOut, pcBackOut, memDataOut                                                                                      : out signed(31 downto 0);
+        AOut, regAOut, BOut, regBOut                                                                                            : out signed(31 downto 0);
+        pcOut                                                                                                                   : out unsigned(31 downto 0)
     );
 end entity Risc_V_Multicycle;
 
@@ -91,7 +98,7 @@ begin
     reg_data : entity work.unitary_reg
         port map(
             clk     => clock,
-            enable  => '1',
+            enable  => clock,
             dataIn  => memData,
             dataOut => regData
         );
@@ -135,7 +142,7 @@ begin
     a_reg : entity work.unitary_reg
         port map(
             clk     => clock,
-            enable  => '1',
+            enable  => clock,
             dataIn  => A,
             dataOut => regA
         );
@@ -143,7 +150,7 @@ begin
     b_reg : entity work.unitary_reg
         port map(
             clk     => clock,
-            enable  => '1',
+            enable  => clock,
             dataIn  => B,
             dataOut => regB
         );
@@ -196,7 +203,7 @@ begin
     saida_ula : entity work.unitary_reg
         port map(
             clk     => clock,
-            enable  => '1',
+            enable  => clock,
             dataIn  => SaidaUla,
             dataOut => regSaidaUla
         );
@@ -209,10 +216,37 @@ begin
             Y   => MuxOrigPC
         );
 
-    regInstrOut    <= STD_LOGIC_VECTOR(unsigned(regInstr));
-    regSaidaUlaOut <= regSaidaUla;  -- need check instructions
-    pcOut          <= unsigned(pc); -- need check jal and beq
-    regDataUlaOut  <= MuxMem2Reg;
-    Mem2RegOut     <= Mem2Reg;
+    regInstrOut      <= STD_LOGIC_VECTOR(unsigned(regInstr));
+    regSaidaUlaOut   <= regSaidaUla; 
+    pcOut            <= unsigned(pc);
+    regDataUlaOut    <= MuxMem2Reg;
+    Mem2RegOut       <= Mem2Reg;
+    imm32Out         <= imm32;
+    AluOpOut         <= AluOp;
+    OrigAULAOut      <= OrigAULA;
+    OrigBULAOut      <= OrigBULA;
+    EscrevePCCondOut <= EscrevePCCond;
+    EscrevePCOut     <= EscrevePC;
+    LouDOut          <= LouD;
+    EscreveMemOut    <= EscreveMem;
+    LeMemOut         <= LeMem;
+    EscreveIROut     <= EscreveIR;
+    OrigPCOut        <= OrigPC;
+    EscrevePCBOut    <= EscrevePCB;
+    EscreveRegOut    <= EscreveReg;
+    UlaSelOut        <= UlaSel;
+    comp_flagOut     <= comp_flag;
+    MuxOrigPCOut     <= MuxOrigPC;
+    MuxOrigAULAOut   <= MuxOrigAULA;
+    MuxOrigBULAOut   <= MuxOrigBULA;
+    MuxLouDOut       <= MuxLouD;
+    MuxMem2RegOut    <= MuxMem2Reg;
+    SaidaUlaOut      <= SaidaUla;
+    pcBackOut        <= pcBack;
+    memDataOut       <= memData;
+    AOut             <= A;
+    regAOut          <= regA;
+    BOut             <= B;
+    regBOut          <= regB;
 
-end architecture rtl;
+    end architecture rtl;

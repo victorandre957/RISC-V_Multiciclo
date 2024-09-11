@@ -28,10 +28,8 @@ end entity;
 
 architecture fsm of risc_v_control is
     type state_type is (IFetch, Decode, ExLwSw, ExTr, ExTri, ExAuiPC, ExLui, ExBeq, ExJal, ExJalR, MemLw, MemSw, MemTR, WriteBeq);
-    signal state, next_state : state_type;
-
-    -- Adicionar contador para o estado IFetch
-    signal fetch_counter : INTEGER range 0 to 1 := 0;
+    signal state : state_type := IFetch;
+    signal next_state: state_type := IFetch;
 
     -- Definir os opcodes das instruções RISC-V
     constant LW     : STD_LOGIC_VECTOR(6 downto 0) := "0000011";
@@ -50,21 +48,13 @@ begin
     begin
         if rst = '1' then
             state         <= IFetch;
-            fetch_counter <= 0;
         elsif rising_edge(clk) then
             state <= next_state;
-            if state = IFetch then
-                if fetch_counter < 1 then
-                    fetch_counter <= fetch_counter + 1;
-                end if;
-            else
-                fetch_counter <= 0;
-            end if;
         end if;
     end process;
 
     -- Máquina de estados do controle
-    process (state, opcode, zero_flag, fetch_counter)
+    process (clk)
     begin
         -- Inicialização das saídas de controle
         EscrevePCCond <= '0';
@@ -98,11 +88,7 @@ begin
                 ALUop      <= "00";
                 Mem2Reg    <= "00";
 
-                if fetch_counter = 1 then
-                    next_state <= Decode;
-                else
-                    next_state <= IFetch;
-                end if;
+                next_state <= Decode;
 
                 -- Decodificação
             when Decode =>

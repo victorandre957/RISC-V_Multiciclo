@@ -12,21 +12,13 @@ entity unitary_reg is
 end entity unitary_reg;
 
 architecture rtl of unitary_reg is
-    signal address              : signed(31 downto 0) := X"00000000";
-    signal twice_enabled_rising : STD_LOGIC           := '0';
+    signal address : signed(31 downto 0) := X"00000000";
+
 begin
     process (clk) is
     begin
         if rising_edge(clk) and enable = '1' then
-            if twice_enabled_rising = '1' then
-                address              <= dataIn;
-                twice_enabled_rising <= '0';
-            else
-                twice_enabled_rising <= '1';
-            end if;
-        end if;
-        if enable = '0' then
-            twice_enabled_rising <= '0';
+            address <= dataIn;
         end if;
     end process;
 
