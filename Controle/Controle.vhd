@@ -7,7 +7,6 @@ entity risc_v_control is
         clk       : in STD_LOGIC;
         rst       : in STD_LOGIC;
         opcode    : in STD_LOGIC_VECTOR(6 downto 0);
-        zero_flag : in STD_LOGIC;
 
         EscrevePCCond : out STD_LOGIC;
         EscrevePC     : out STD_LOGIC;
