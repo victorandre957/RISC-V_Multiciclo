@@ -53,7 +53,6 @@ begin
             clk           => clock,
             rst           => reset,
             opcode        => STD_LOGIC_VECTOR(resize(unsigned(regInstr(6 downto 0)), 7)),
-            zero_flag     => comp_flag,
             EscrevePCCond => EscrevePCCond,
             EscrevePC     => EscrevePC,
             LouD          => LouD,
