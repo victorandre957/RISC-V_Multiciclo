@@ -174,7 +174,7 @@ begin
 
         wait for CLK_PERIOD * 3.4; --check result before instruction ends in 4 cycles
         assert (regInstrOut = x"00f37893" and MuxMem2RegOut = x"0000000a")
-        report "Test 14 Failed: and x17, x6, 0XF"
+        report "Test 14 Failed: andi x17, x6, 0XF"
             severity error;
         wait for CLK_PERIOD * 0.6; -- wait instruction end
 
